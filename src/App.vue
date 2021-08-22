@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import TheMain from "./components/TheMain.vue";
-import TheServicios from "./components/TheServicios.vue";
-import TheFooter from "./components/TheFooter.vue";
+import TheMain from "@/components/TheMain.vue";
+import TheServicios from "@/components/TheServicios.vue";
+import TheFooter from "@/components/TheFooter.vue";
 
 export default {
   name: "App",
