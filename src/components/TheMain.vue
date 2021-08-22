@@ -30,7 +30,7 @@
       data-aos="fade-up"
       data-aos-delay="3000"
       data-aos-duration="2000"
-      class="relative z-10"
+      class="relative z-10 mx-4 sm:mx-0"
     >
       <img class="w-10 absolute top-0 left-0" src="@/assets/quote.svg" />
       <div
@@ -49,7 +49,7 @@
       />
     </div>
 
-    <div class="animate-bounce absolute bottom-5 z-10">
+    <div class="hidden md:block animate-bounce absolute bottom-5 z-10">
       <a href="#main">
         <img
           src="@/assets/arrow.svg"

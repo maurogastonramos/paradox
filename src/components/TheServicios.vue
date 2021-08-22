@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto py-10">
     <div
-      class="w-full lg:w-2/3 mx-auto grid grid-cols-2 justify-items-stretch gap-x-10 gap-y-10"
+      class="w-full lg:w-2/3 mx-auto px-4 lg:p-0 grid grid-cols-1 sm:grid-cols-2 justify-items-stretch gap-x-10 gap-y-10"
     >
       <div
         v-for="(opcion, index) in opciones"
@@ -10,6 +10,7 @@
         :style="{ 'background-color': opcion.background }"
         :data-aos="index % 2 ? 'fade-left' : 'fade-right'"
         data-aos-duration="1000"
+        data-aos-once="true"
       >
         <h1 class="text-2xl font-semibold">{{ opcion.titulo }}</h1>
         <img :src="opcion.img" class="w-20 filter invert my-6" />

@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen relative">
+  <div class="relative">
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Teko"
@@ -8,7 +8,9 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Tangerine"
     />
-    <the-main />
+    <div class="h-auto py-10 md:p-0 md:h-screen relative">
+      <the-main />
+    </div>
 
     <div id="main">
       <the-servicios />
