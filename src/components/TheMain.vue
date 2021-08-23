@@ -1,16 +1,18 @@
 <template>
-  <div class="w-full h-full flex justify-center items-center flex-col">
+  <div
+    class="w-full h-full flex justify-center items-center flex-col select-none"
+  >
     <img
       data-aos="fade-down"
-      data-aos-duration="2000"
+      data-aos-duration="1000"
       alt="Paradox logo"
       src="@/assets/logo.png"
-      class="z-10 w-2/3 xl:w-1/3"
+      class="z-10 w-2/3 max-w-2xl"
     />
-    <div class="z-10 text-white" style="font-family:'Teko';">
+    <div class="z-10 text-white" style="font-family:'Baloo Tamma 2';">
       <p
         data-aos="fade-in"
-        data-aos-delay="2000"
+        data-aos-delay="1000"
         data-aos-duration="2000"
         class="text-3xl font-medium"
       >
@@ -18,7 +20,7 @@
       </p>
       <p
         data-aos="fade-in"
-        data-aos-delay="2000"
+        data-aos-delay="1500"
         data-aos-duration="2000"
         class="text-2xl font-light"
       >
@@ -27,7 +29,7 @@
     </div>
 
     <div
-      data-aos="fade-up"
+      data-aos="flip-down"
       data-aos-delay="3000"
       data-aos-duration="2000"
       class="relative z-10 mx-4 sm:mx-0"
@@ -39,7 +41,7 @@
         <p class="text-4xl font-medium" style="font-family:'Tangerine'">
           Si buscás resultados distintos, no hagas siempre lo mismo
         </p>
-        <p class="w-full text-right">
+        <p class="w-full text-right" style="font-family:'Baloo Tamma 2';">
           - Albert Einstein
         </p>
       </div>
@@ -48,6 +50,7 @@
         src="@/assets/quote.svg"
       />
     </div>
+    <div class="absolute bottom-10" id="main"></div>
 
     <div class="hidden md:block animate-bounce absolute bottom-5 z-10">
       <a href="#main">
