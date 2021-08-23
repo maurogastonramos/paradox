@@ -29,26 +29,26 @@
     </div>
 
     <div
-      data-aos="flip-down"
+      data-aos="fade-in"
       data-aos-delay="3000"
       data-aos-duration="2000"
-      class="relative z-10 mx-4 sm:mx-0"
+      class="relative z-10 mx-4 mt-4 sm:mx-0"
     >
-      <img class="w-10 absolute top-0 left-0" src="@/assets/quote.svg" />
+      <img class="w-8 absolute top-0 left-0 z-10" src="@/assets/quote.svg" />
       <div
-        class="my-5 p-4 bg-white text-black rounded-tr-xl rounded-bl-xl rounded-tl-sm rounded-br-sm z-10"
+        class="my-5 py-2 px-8 text-white rounded-tr-xl rounded-bl-xl rounded-tl-sm rounded-br-sm z-10"
       >
-        <p class="text-4xl font-medium" style="font-family:'Tangerine'">
+        <p class="text-xl font-medium" style="font-family:'Sans Serif'">
           Si buscás resultados distintos, no hagas siempre lo mismo
         </p>
         <p class="w-full text-right" style="font-family:'Baloo Tamma 2';">
           - Albert Einstein
         </p>
       </div>
-      <img
-        class="w-10 transform rotate-180 absolute bottom-0 right-0"
+      <!-- <img
+        class="w-8 transform rotate-180 absolute bottom-0 right-0"
         src="@/assets/quote.svg"
-      />
+      /> -->
     </div>
     <div class="absolute bottom-10" id="main"></div>
 

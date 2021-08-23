@@ -25,13 +25,16 @@ export default {
         this.limitPosition < window.scrollY
       ) {
         this.scrolled = true;
-        // move up
+        // abajo
       }
       this.scrolled = window.scrollY < this.limitPosition;
 
-      if (this.lastPosition > window.scrollY) {
+      if (
+        this.lastPosition > window.scrollY &&
+        window.scrollY > this.limitPosition
+      ) {
         this.scrolled = false;
-        // move down
+        // arriba
       }
 
       this.lastPosition = window.scrollY;
