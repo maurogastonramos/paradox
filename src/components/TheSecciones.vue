@@ -1,11 +1,21 @@
 <template>
-  <div class="bg-black text-white relative">
+  <div
+    :class="[
+      {
+        'text-white bg-black ': currentSeccion % 2 === 0,
+      },
+      {
+        'text-black bg-white ': currentSeccion % 2 !== 0,
+      },
+      'transition duration-500  relative',
+    ]"
+  >
     <div
       v-for="(seccion, indexSeccion) in secciones"
       :key="indexSeccion"
-      class="text-left px-10 mb-40"
+      :id="indexSeccion"
+      class="text-left px-10 mb-40 seccion"
     >
-
       <Title :title="seccion.titulo" />
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-10 md:mt-20">
@@ -55,11 +65,11 @@
                 'md:opacity-10':
                   current !== `texto-${indexSeccion}-${indexTexto}`,
               },
-              'transition duration-500 parrafito md:pt-4v md:pb-40v',
+              'transition duration-500 parrafo md:pt-4v md:pb-40v',
             ]"
           >
             <div>
-              <div class="w-full h-80 mt-8 pb-5 md:hidden	">
+              <div class="w-full h-80 mt-8 pb-5 md:hidden">
                 <img
                   :src="
                     texto.foto
@@ -71,8 +81,10 @@
                   srcset=""
                 />
               </div>
-              <p class="font-bold text-xl md:text-4xl break-words	">{{ texto.titulo }}</p>
-              <p class="text-md md:text-2xl break-words	">{{ texto.texto }}</p>
+              <p class="font-bold text-xl md:text-4xl break-words">
+                {{ texto.titulo }}
+              </p>
+              <p class="text-md md:text-2xl break-words">{{ texto.texto }}</p>
             </div>
           </div>
         </div>
@@ -85,22 +97,36 @@
 import { onMounted, ref } from "@vue/runtime-core";
 import Title from "./Title.vue";
 export default {
-  components: {Title},
+  components: { Title },
   setup() {
     let current = ref("texto-0-0");
+    let currentSeccion = ref("0");
+
     onMounted(() => {
-      const sections = document.querySelectorAll(".parrafito");
+      const parrafos = document.querySelectorAll(".parrafo");
+      const secciones = document.querySelectorAll(".seccion");
+
       window.addEventListener("scroll", () => {
-        sections.forEach((section) => {
+        parrafos.forEach((parrafo) => {
+          const sectionTop = parrafo.offsetTop;
+          if (pageYOffset - window.innerHeight >= sectionTop) {
+            current.value = parrafo.getAttribute("id");
+            return;
+          }
+        });
+        secciones.forEach((section) => {
           const sectionTop = section.offsetTop;
           if (pageYOffset - window.innerHeight >= sectionTop) {
-            current.value = section.getAttribute("id");
+            currentSeccion.value = section.getAttribute("id");
             return;
           }
         });
       });
     });
 
+    const getIndexSeccion = () => {
+      return parseInt(current.value.charAt(current.value.length - 3));
+    };
     const secciones = [
       {
         id: "gestion",
@@ -188,7 +214,7 @@ export default {
         ],
       },
     ];
-    return { secciones, current };
+    return { secciones, current, getIndexSeccion, currentSeccion };
   },
 };
 </script>

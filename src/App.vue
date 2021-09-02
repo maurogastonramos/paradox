@@ -21,6 +21,9 @@
 
     <div class="bg-black">
       <the-servicios />
+    </div>
+
+    <div class="bg-white">
       <the-secciones />
       <the-clientes />
     </div>

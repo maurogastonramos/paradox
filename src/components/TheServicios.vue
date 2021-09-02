@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black relative my-10">
+  <div class="bg-black text-white relative py-10">
     <div class="container mx-auto py-10 select-none">
 
       <Title title="Productos" />
@@ -92,7 +92,7 @@ export default {
 
 <style >
 .gear-container:hover .gear{
-  animation: float 3s ease-in-out infinite;	transform: translatey(0px);   
+  animation: float 2s ease-in-out infinite;	transform: translatey(0px);   
 }
 @keyframes float {
 	0% {

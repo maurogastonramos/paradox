@@ -1,7 +1,7 @@
 <template>
-  <div class="container mx-auto py-10 select-none">
+  <div class="container mx-auto py-10 select-none bg-white text-black">
     <Title title="Nuestros clientes" />
-    <div class="w-full flex flex-wrap justify-center py-5 items-center gap-x-5">
+    <div class="w-full flex flex-wrap justify-center py-5 items-center gap-x-10">
       <a
         v-for="(cliente, index) in clientes"
         :key="index"
