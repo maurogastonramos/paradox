@@ -1,79 +1,85 @@
 <template>
-  <div class="container mx-auto py-10 select-none">
-    <h1 class="text-5xl text-gray-900" style="font-family:'Baloo Tamma 2';">
-      Productos
-    </h1>
-    <div
-      class="w-full lg:w-2/3 mx-auto mt-5 px-4 lg:p-0 grid grid-cols-1 sm:grid-cols-2 justify-items-stretch gap-x-10 gap-y-10"
-    >
-      <a
-        v-for="(opcion, index) in opciones"
-        :key="opcion.id"
-        :data-aos="index % 2 ? 'flip-left' : 'flip-right'"
-        data-aos-duration="1000"
-        data-aos-once="true"
-        class="cursor-default"
-      >
-        <!-- :href="`#${opcion.id}`" -->
-        <div
-          :class="[
-            `bg-${opcion.background}`,
-            ' w-full h-full p-4 flex flex-col items-center text-white rounded-md shadow-md group cursor-pointer transform hover:scale-110 transition duration-300',
-          ]"
-        >
-          <h1 class="text-2xl font-semibold">{{ opcion.titulo }}</h1>
-          <div class="relative w-full">
-            <div class="w-full">
-              <img
-                :src="opcion.img"
-                class="w-20 mx-auto filter invert my-6 group-hover:opacity-0 transition-opacity duration-100"
-              />
-            </div>
+  <div class="bg-black relative my-10">
+    <div class="container mx-auto py-10 select-none">
 
-            <div class="w-full h-full absolute top-0 p-4 flex items-center">
-              <p
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-100"
-              >
-                {{ opcion.texto }}
-              </p>
+      <Title title="Productos" />
+      <div
+        class="
+          w-full
+          lg:w-10/12
+          mx-auto
+          mt-5
+          lg:p-0
+          justify-items-stretch
+          gap-x-3 gap-y-10
+          md:flex
+          grid
+          grid-cols-2
+        "
+      >
+        <a
+          v-for="opcion in opciones"
+          :key="opcion.id"
+          :data-aos="'fade-up'"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          :data-aos-delay="'500'"
+          class="cursor-default w-full sm:w-auto  flex justify-center flex-1"
+        >
+          <!-- :href="`#${opcion.id}`" -->
+          <div
+            :class="[
+              'p-4 space-y-4 rounded-full flex flex-col group gear-container items-center text-white shadow-md cursor-pointer',
+            ]"
+          >
+            <div class="relative w-full">
+              <div class="w-full flex justify-center gear" style="">
+                <gear class="grad w-10 md:w-16 transform  group-hover:text-main duration-500 " />
+              </div>
             </div>
+            <h1 class="text-xl md:text-2xl font-light text-gray-300">
+              {{ opcion.titulo }}
+            </h1>
+            <h3 class="text-md text-gray-400"> {{opcion.texto}}</h3>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Gear from "@/assets/icons/gear.vue";
+import Title from './Title.vue';
 export default {
+  components: {
+    Gear,
+    Title
+  },
   setup() {
     const opciones = [
       {
         id: "gestion",
         img: "https://pomakana.com/images/icons/gestiononline.png",
-        background: "main",
-        titulo: "Sistemas de gestión",
+        titulo: "Gestión",
         texto: "Texto - Sistemas de Gestión.",
       },
       {
         id: "web",
-        background: "secondary",
         img: "https://pomakana.com/images/icons/web.png",
-        titulo: "Páginas web",
+        titulo: "Websites",
         texto: "Texto - Páginas web.",
       },
       {
         id: "marketing",
         img: "https://pomakana.com/images/icons/seo.png",
-        background: "secondary",
-        titulo: "Marketing de contenido",
+        titulo: "Marketing",
         texto: "Texto - Marketing de contenido.",
       },
       {
         id: "comunicacion",
-        background: "main",
         img: "https://pomakana.com/images/icons/consult.png",
-        titulo: "Comunicación digital",
+        titulo: "Comunicación",
         texto: "Texto - Comunicación digital.",
       },
     ];
@@ -82,3 +88,21 @@ export default {
   },
 };
 </script>
+
+
+<style >
+.gear-container:hover .gear{
+  animation: float 3s ease-in-out infinite;	transform: translatey(0px);   
+}
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-10px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+</style>

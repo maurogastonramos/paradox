@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{ 'headroom--unpinned': scrolled }"
-    class="fixed w-full h-16 bg-black border-b border-gray-500 px-5 py-1 z-30 headroom header"
+    class="fixed w-full h-16 bg-black border-b border-gray-500 px-5 py-1 z-50 headroom header"
     v-on:scroll="handleScroll"
   >
     <img src="@/assets/logo.png" class="max-h-full" alt="" />

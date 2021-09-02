@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full flex justify-center items-center flex-col select-none"
+    class="w-full h-full flex justify-center items-center flex-col select-none bg-black z-50"
   >
     <img
       data-aos="fade-down"
@@ -52,23 +52,24 @@
     </div>
     <div class="absolute bottom-10" id="main"></div>
 
-    <div class="hidden md:block animate-bounce absolute bottom-5 z-10">
+    <!-- <div class="hidden md:block animate-bounce absolute bottom-5 z-10">
       <a href="#main">
         <img
           src="@/assets/arrow.svg"
           class="w-10 p-0 border rounded-full m-4"
         />
       </a>
-    </div>
+    </div> -->
+
   </div>
-  <stars-background />
+  <!-- <stars-background /> -->
+
+
 </template>
 
 <script>
-import StarsBackground from "./StarsBackground.vue";
 export default {
   components: {
-    StarsBackground,
   },
   setup() {},
 };

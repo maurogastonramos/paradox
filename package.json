@@ -12,6 +12,7 @@
     "aos": "^2.3.4",
     "autoprefixer": "^9",
     "core-js": "^3.6.5",
+    "particles.vue3": "^1.17.0",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "vue": "^3.0.0"

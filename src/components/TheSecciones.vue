@@ -1,44 +1,135 @@
 <template>
-  <seccion
-    v-for="(seccion, index) in secciones"
-    :key="index"
-    :id="seccion.id"
-    :seccion="seccion"
-    :last="index + 1 == secciones.length"
-  >
-  </seccion>
+  <div class="bg-black text-white relative">
+    <div
+      v-for="(seccion, indexSeccion) in secciones"
+      :key="indexSeccion"
+      class="text-left px-10 mb-40"
+    >
+
+      <Title :title="seccion.titulo" />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-10 md:mt-20">
+        <div class="hidden md:block col-span-1 md:col-span-2 relative">
+          <div class="block md:sticky top-20 z-40">
+            <div class="relative h-80v">
+              <div
+                v-for="(texto, indexTexto) in seccion.textos"
+                :key="'a' + indexTexto"
+                :class="[
+                  {
+                    'md:opacity-100':
+                      current === `texto-${indexSeccion}-${indexTexto}`,
+                  },
+                  {
+                    'md:opacity-0':
+                      current !== `texto-${indexSeccion}-${indexTexto}`,
+                  },
+                  'transition h-80v duration-500 w-full block md:absolute top-0 bottom-0 left-0 right-0',
+                ]"
+              >
+                <img
+                  :src="
+                    texto.foto
+                      ? require('../assets/secciones/' + texto.foto)
+                      : require('../assets/secciones/1.jpeg')
+                  "
+                  class="w-full h-full object-cover"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 md:mt-20 col-span-2 md:col-span-1">
+          <div
+            v-for="(texto, indexTexto) in seccion.textos"
+            :key="indexTexto"
+            :id="`texto-${indexSeccion}-${indexTexto}`"
+            :class="[
+              {
+                'md:opacity-100':
+                  current === `texto-${indexSeccion}-${indexTexto}`,
+              },
+              {
+                'md:opacity-10':
+                  current !== `texto-${indexSeccion}-${indexTexto}`,
+              },
+              'transition duration-500 parrafito md:pt-4v md:pb-40v',
+            ]"
+          >
+            <div>
+              <div class="w-full h-80 mt-8 pb-5 md:hidden	">
+                <img
+                  :src="
+                    texto.foto
+                      ? require('../assets/secciones/' + texto.foto)
+                      : require('../assets/secciones/1.jpeg')
+                  "
+                  class="w-full h-full object-cover"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+              <p class="font-bold text-xl md:text-4xl break-words	">{{ texto.titulo }}</p>
+              <p class="text-md md:text-2xl break-words	">{{ texto.texto }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import Seccion from "./Seccion.vue";
+import { onMounted, ref } from "@vue/runtime-core";
+import Title from "./Title.vue";
 export default {
-  components: { Seccion },
+  components: {Title},
   setup() {
+    let current = ref("texto-0-0");
+    onMounted(() => {
+      const sections = document.querySelectorAll(".parrafito");
+      window.addEventListener("scroll", () => {
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset - window.innerHeight >= sectionTop) {
+            current.value = section.getAttribute("id");
+            return;
+          }
+        });
+      });
+    });
+
     const secciones = [
       {
         id: "gestion",
         titulo: "Sistemas de Gestión",
-        theme: "dark",
+        theme: "light",
         textos: [
           {
             titulo: "Tu negocio, en la palma de tu mano.",
             texto:
               "Manejá tu negocio desde donde estés, con cualquier dispositivo (desktop o mobile).",
+            foto: "1.jpeg",
           },
           {
             titulo: "Sistemas que se adaptan a tu negocio (y no al revés)",
             texto:
               "¿Tu sistema actual no acompaña el crecimiento de tu empresa? Lo reemplazamos o complementamos en función de tus necesidades.",
+            foto: "2.jpeg",
           },
           {
             titulo: "Inversiones que rinden",
             texto:
               "Nuestros sistemas de gestión te permiten automatizar procesos, evitar errores y ahorrar tiempo y recursos. Poné a tu equipo a trabajar en lo que verdaderamente importa.",
+            foto: "3.jpeg",
           },
           {
             titulo: "Sistemas integrales y modulares",
             texto:
               "Stock, pedidos, personal, ventas... Podés empezar por uno, y vas a terminar manejando todo tu negocio en un mismo sistema.",
+            foto: "4.jpeg",
           },
         ],
       },
@@ -51,11 +142,13 @@ export default {
             titulo: "No hay segunda oportunidad para una primera impresión.",
             texto:
               "Tu sitio web es tu carta de presentación. Enamorá / atraé a los usuarios contándoles qué tenés para ofrecerles.",
+            foto: "5.jpeg",
           },
           {
             titulo: "Diseño UX",
             texto:
               "Diseños pensados en la facilidad de navegación, tanto en desktop como en mobile. Si algo no es fácil de encontrar, está mal diseñado.",
+            foto: "1.jpeg",
           },
           {
             titulo: "Autoadministrables (si querés, y si no, no)",
@@ -95,7 +188,14 @@ export default {
         ],
       },
     ];
-    return { secciones };
+    return { secciones, current };
   },
 };
 </script>
+
+
+<style scoped>
+a.current {
+  background: red;
+}
+</style>

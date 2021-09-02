@@ -5,6 +5,10 @@ import '@/assets/tailwind.css'
 // Vue Animations
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-AOS.init();
+AOS.init();        
 
-createApp(App).mount('#app')
+import Particles from "particles.vue3";
+
+createApp(App)
+  .use(Particles)
+  .mount("#app");
