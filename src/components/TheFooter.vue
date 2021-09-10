@@ -7,7 +7,7 @@
     </div>
     <div class="">
       <div class="text-gray-400">
-        <p>info@pomakana.com</p>
+        <p>info@paradox.ar</p>
         <p>(+54) 11 69413535</p>
       </div>
     </div>

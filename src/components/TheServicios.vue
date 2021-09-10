@@ -1,85 +1,55 @@
 <template>
-  <div class="bg-black text-white relative py-10">
-    <div class="container mx-auto py-10 select-none">
-
+  <div class="h-full w-full text-white bg-black py-10">
+    <div class="container mx-auto select-none z-40 relative">
       <Title title="Productos" />
-      <div
-        class="
-          w-full
-          lg:w-10/12
-          mx-auto
-          mt-5
-          lg:p-0
-          justify-items-stretch
-          gap-x-3 gap-y-10
-          md:flex
-          grid
-          grid-cols-2
-        "
-      >
-        <a
-          v-for="opcion in opciones"
-          :key="opcion.id"
-          :data-aos="'fade-up'"
-          data-aos-duration="1000"
-          data-aos-once="true"
-          :data-aos-delay="'500'"
-          class="cursor-default w-full sm:w-auto  flex justify-center flex-1"
-        >
-          <!-- :href="`#${opcion.id}`" -->
-          <div
-            :class="[
-              'p-4 space-y-4 rounded-full flex flex-col group gear-container items-center text-white shadow-md cursor-pointer',
-            ]"
+
+      <div class="flex justify-center hex-container h-80">
+        <div class="row flex justify-center items-center text-gray-500">
+          <hexagon
+            v-for="opcion in opciones"
+            :key="opcion.id"
+            class="hover:text-main hover:z-50 transition duration-400 cursor-pointer font-light"
           >
-            <div class="relative w-full">
-              <div class="w-full flex justify-center gear" style="">
-                <gear class="grad w-10 md:w-16 transform  group-hover:text-main duration-500 " />
-              </div>
-            </div>
-            <h1 class="text-xl md:text-2xl font-light text-gray-300">
-              {{ opcion.titulo }}
-            </h1>
-            <h3 class="text-md text-gray-400"> {{opcion.texto}}</h3>
-          </div>
-        </a>
+            {{ opcion.titulo }}
+          </hexagon>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Gear from "@/assets/icons/gear.vue";
-import Title from './Title.vue';
+import Title from "./Title.vue";
+import Hexagon from "./Hexagon.vue";
 export default {
   components: {
-    Gear,
-    Title
+    Title,
+    Hexagon,
   },
   setup() {
     const opciones = [
       {
         id: "gestion",
         img: "https://pomakana.com/images/icons/gestiononline.png",
-        titulo: "Gestión",
+        titulo: "Sistemas de Gestión",
         texto: "Texto - Sistemas de Gestión.",
       },
       {
         id: "web",
         img: "https://pomakana.com/images/icons/web.png",
-        titulo: "Websites",
+        titulo: "Páginas web",
         texto: "Texto - Páginas web.",
       },
       {
         id: "marketing",
         img: "https://pomakana.com/images/icons/seo.png",
-        titulo: "Marketing",
+        titulo: "Marketing de contenido",
         texto: "Texto - Marketing de contenido.",
       },
       {
         id: "comunicacion",
         img: "https://pomakana.com/images/icons/consult.png",
-        titulo: "Comunicación",
+        titulo: "Comunicación digital",
         texto: "Texto - Comunicación digital.",
       },
     ];
@@ -89,20 +59,17 @@ export default {
 };
 </script>
 
-
-<style >
-.gear-container:hover .gear{
-  animation: float 2s ease-in-out infinite;	transform: translatey(0px);   
+<style scoped>
+.hex-container {
 }
-@keyframes float {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-10px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
+.row.even {
+}
+
+svg {
+  margin: -17px;
+}
+svg:nth-child(even) {
+  position: relative;
+  bottom: 60px;
 }
 </style>

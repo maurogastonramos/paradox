@@ -2,24 +2,23 @@
   <div class="relative z-50">
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Baloo+Tamma+2"
+      href="https://fonts.googleapis.com/css?family=Orbitron"
     />
+
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Tangerine"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
     />
+
     <the-navbar />
 
-    <div class="h-auto py-10 md:p-0 md:h-screen relative">
+    <div class="h-auto py-10 md:p-0 relative">
       <Particles
         id="tsparticles2"
         class="w-full h-full absolute top-0 right-0 left-0 z-10"
         :options="particlesConfig"
       />
-      <the-main />
-    </div>
-
-    <div class="bg-black">
+      <the-main class="md:h-screen" />
       <the-servicios />
     </div>
 
@@ -53,6 +52,21 @@ export default {
     TheClientes,
   },
   setup() {
+    fetch("http://api.feli.local/filters/orders", {
+      method: "POST",
+     headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+      mode: 'cors',
+      body: JSON.stringify({ id: "hola  " }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.dataChart.push(...res);
+        this.makeDataChart();
+      });
+
     return { particlesConfig };
   },
 };
@@ -69,5 +83,8 @@ export default {
 }
 html {
   scroll-behavior: smooth;
+}
+circles {
+  z-index: 10;
 }
 </style>

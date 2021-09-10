@@ -7,7 +7,7 @@
       {
         'text-black bg-white ': currentSeccion % 2 !== 0,
       },
-      'transition duration-500  relative',
+      'transition duration-500 relative',
     ]"
   >
     <div
@@ -16,75 +16,72 @@
       :id="indexSeccion"
       class="text-left px-10 mb-40 seccion"
     >
-      <Title :title="seccion.titulo" />
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-10 md:mt-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-10 md:pt-20">
+        <!-- Col 1 - Desktop: Titulo y Foto de sección Sticky - Mobile: Hidden -->
         <div class="hidden md:block col-span-1 md:col-span-2 relative">
-          <div class="block md:sticky top-20 z-40">
-            <div class="relative h-80v">
+          <div class="block md:sticky top-16 z-40">
+            <Title class="text-xl" :title="seccion.titulo" />
+
+            <!-- Foto de Sección -->
+            <div class="relative mt-6 h-72v">
               <div
-                v-for="(texto, indexTexto) in seccion.textos"
-                :key="'a' + indexTexto"
+                v-for="(parrafo, indexParrafo) in seccion.parrafos"
+                :key="indexParrafo"
                 :class="[
                   {
                     'md:opacity-100':
-                      current === `texto-${indexSeccion}-${indexTexto}`,
+                      currentParrafo ===
+                      `parrafo-${indexSeccion}-${indexParrafo}`,
                   },
                   {
                     'md:opacity-0':
-                      current !== `texto-${indexSeccion}-${indexTexto}`,
+                      currentParrafo !==
+                      `parrafo-${indexSeccion}-${indexParrafo}`,
                   },
-                  'transition h-80v duration-500 w-full block md:absolute top-0 bottom-0 left-0 right-0',
+                  'transition h-72v duration-500 w-full block md:absolute top-0 bottom-0 left-0 right-0',
                 ]"
               >
                 <img
-                  :src="
-                    texto.foto
-                      ? require('../assets/secciones/' + texto.foto)
-                      : require('../assets/secciones/1.jpeg')
-                  "
+                  :src="getFoto(parrafo)"
                   class="w-full h-full object-cover"
-                  alt=""
-                  srcset=""
                 />
               </div>
             </div>
           </div>
         </div>
-        <div class="mt-8 md:mt-20 col-span-2 md:col-span-1">
+
+        <!-- Col 2 - Desktop: Texto - Mobile: Foto + Texto -->
+        <div class="mt-8 md:mt-20 col-span-2 md:col-span-1 font-texto">
+          <Title :title="seccion.titulo" class="md:hidden" />
           <div
-            v-for="(texto, indexTexto) in seccion.textos"
-            :key="indexTexto"
-            :id="`texto-${indexSeccion}-${indexTexto}`"
+            v-for="(parrafo, indexParrafo) in seccion.parrafos"
+            :key="indexParrafo"
+            :id="`parrafo-${indexSeccion}-${indexParrafo}`"
             :class="[
               {
                 'md:opacity-100':
-                  current === `texto-${indexSeccion}-${indexTexto}`,
+                  currentParrafo === `parrafo-${indexSeccion}-${indexParrafo}`,
               },
               {
                 'md:opacity-10':
-                  current !== `texto-${indexSeccion}-${indexTexto}`,
+                  currentParrafo !== `parrafo-${indexSeccion}-${indexParrafo}`,
               },
-              'transition duration-500 parrafo md:pt-4v md:pb-40v',
+              'parrafo md:pt-4v md:pb-40v transition duration-500 ',
             ]"
           >
             <div>
-              <div class="w-full h-80 mt-8 pb-5 md:hidden">
+              <div class="mt-8 pb-5 w-full h-80 md:hidden">
                 <img
-                  :src="
-                    texto.foto
-                      ? require('../assets/secciones/' + texto.foto)
-                      : require('../assets/secciones/1.jpeg')
-                  "
+                  :src="getFoto(parrafo)"
                   class="w-full h-full object-cover"
-                  alt=""
-                  srcset=""
                 />
               </div>
-              <p class="font-bold text-xl md:text-4xl break-words">
-                {{ texto.titulo }}
+              <p class="text-xl md:text-2xl font-bold break-words mb-4">
+                {{ parrafo.titulo }}
               </p>
-              <p class="text-md md:text-2xl break-words">{{ texto.texto }}</p>
+              <p class="text-md md:text-md break-words">
+                {{ parrafo.parrafo }}
+              </p>
             </div>
           </div>
         </div>
@@ -99,21 +96,13 @@ import Title from "./Title.vue";
 export default {
   components: { Title },
   setup() {
-    let current = ref("texto-0-0");
+    let currentParrafo = ref("parrafo-0-0");
     let currentSeccion = ref("0");
 
     onMounted(() => {
-      const parrafos = document.querySelectorAll(".parrafo");
-      const secciones = document.querySelectorAll(".seccion");
-
+      // Guarda la sección y el parráfo actualmente visible
       window.addEventListener("scroll", () => {
-        parrafos.forEach((parrafo) => {
-          const sectionTop = parrafo.offsetTop;
-          if (pageYOffset - window.innerHeight >= sectionTop) {
-            current.value = parrafo.getAttribute("id");
-            return;
-          }
-        });
+        const secciones = document.querySelectorAll(".seccion");
         secciones.forEach((section) => {
           const sectionTop = section.offsetTop;
           if (pageYOffset - window.innerHeight >= sectionTop) {
@@ -121,41 +110,51 @@ export default {
             return;
           }
         });
+        const parrafos = document.querySelectorAll(".parrafo");
+        parrafos.forEach((parrafo) => {
+          const sectionTop = parrafo.offsetTop;
+          if (pageYOffset - window.innerHeight >= sectionTop) {
+            currentParrafo.value = parrafo.getAttribute("id");
+            return;
+          }
+        });
       });
     });
 
     const getIndexSeccion = () => {
-      return parseInt(current.value.charAt(current.value.length - 3));
+      return parseInt(
+        currentParrafo.value.charAt(currentParrafo.value.length - 3)
+      );
     };
     const secciones = [
       {
         id: "gestion",
         titulo: "Sistemas de Gestión",
         theme: "light",
-        textos: [
+        parrafos: [
           {
             titulo: "Tu negocio, en la palma de tu mano.",
-            texto:
+            parrafo:
               "Manejá tu negocio desde donde estés, con cualquier dispositivo (desktop o mobile).",
             foto: "1.jpeg",
           },
           {
             titulo: "Sistemas que se adaptan a tu negocio (y no al revés)",
-            texto:
+            parrafo:
               "¿Tu sistema actual no acompaña el crecimiento de tu empresa? Lo reemplazamos o complementamos en función de tus necesidades.",
-            foto: "2.jpeg",
-          },
-          {
-            titulo: "Inversiones que rinden",
-            texto:
-              "Nuestros sistemas de gestión te permiten automatizar procesos, evitar errores y ahorrar tiempo y recursos. Poné a tu equipo a trabajar en lo que verdaderamente importa.",
             foto: "3.jpeg",
           },
           {
+            titulo: "Inversiones que rinden",
+            parrafo:
+              "Nuestros sistemas de gestión te permiten automatizar procesos, evitar errores y ahorrar tiempo y recursos. Poné a tu equipo a trabajar en lo que verdaderamente importa.",
+            foto: "5.jpeg",
+          },
+          {
             titulo: "Sistemas integrales y modulares",
-            texto:
+            parrafo:
               "Stock, pedidos, personal, ventas... Podés empezar por uno, y vas a terminar manejando todo tu negocio en un mismo sistema.",
-            foto: "4.jpeg",
+            foto: "7.jpeg",
           },
         ],
       },
@@ -163,23 +162,24 @@ export default {
         id: "web",
         titulo: "Páginas web",
         theme: "light",
-        textos: [
+        parrafos: [
           {
             titulo: "No hay segunda oportunidad para una primera impresión.",
-            texto:
+            parrafo:
               "Tu sitio web es tu carta de presentación. Enamorá / atraé a los usuarios contándoles qué tenés para ofrecerles.",
-            foto: "5.jpeg",
+            foto: "9.jpeg",
           },
           {
             titulo: "Diseño UX",
-            texto:
+            parrafo:
               "Diseños pensados en la facilidad de navegación, tanto en desktop como en mobile. Si algo no es fácil de encontrar, está mal diseñado.",
-            foto: "1.jpeg",
+            foto: "11.jpeg",
           },
           {
             titulo: "Autoadministrables (si querés, y si no, no)",
-            texto:
+            parrafo:
               "Sitios web llave en mano: una vez que está listo, modificás el contenido cuando vos quieras, de manera sencilla. Y si preferís, lo hacemos nosotros. ",
+            foto: "13.jpeg",
           },
         ],
       },
@@ -187,11 +187,12 @@ export default {
         id: "marketing",
         titulo: "Marketing de contenido",
         theme: "dark",
-        textos: [
+        parrafos: [
           {
             titulo: "Sé referente de tu comunidad",
-            texto:
+            parrafo:
               "Aunque no lo creas, lo mejor que podés darles a tus clientes no son tus productos. Creamos y curamos contenido de calidad, que ofrece valor y fideliza a tus usuarios.",
+            foto: "15.jpeg",
           },
         ],
       },
@@ -199,22 +200,36 @@ export default {
         id: "comunicacion",
         titulo: "Comunicación digital",
         theme: "light",
-        textos: [
+        parrafos: [
           {
             titulo:
               "Hacé que los usuarios se sientan acompañados mientras recorren tu sitio web",
-            texto:
+            parrafo:
               "Anticipar sus dudas y las respuestas que necesitan es una gran estrategia para lograr más ventas.",
+            foto: "17.jpeg",
           },
           {
             titulo: "La voz / personalidad de tu empresa, en todos los canales",
-            texto:
+            parrafo:
               "Redes sociales, newsletters, mailing, formularios... Que se note en todos lados quiénes son ustedes.",
+            foto: "18.jpeg",
           },
         ],
       },
     ];
-    return { secciones, current, getIndexSeccion, currentSeccion };
+
+    const getFoto = (parrafo) => {
+      return parrafo.foto
+        ? require("../assets/secciones/" + parrafo.foto)
+        : require("../assets/secciones/1.jpeg");
+    };
+    return {
+      secciones,
+      currentParrafo,
+      getIndexSeccion,
+      currentSeccion,
+      getFoto,
+    };
   },
 };
 </script>
