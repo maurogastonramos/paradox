@@ -20,7 +20,10 @@
         <!-- Col 1 - Desktop: Titulo y Foto de sección Sticky - Mobile: Hidden -->
         <div class="hidden md:block col-span-1 md:col-span-2 relative">
           <div class="block md:sticky top-16 z-40">
-            <Title class="text-xl" :title="seccion.titulo" />
+            <div class="flex">
+              <Title class="text-xl" :title="seccion.titulo" />
+              <input type="checkbox" v-model="altImg" />
+            </div>
 
             <!-- Foto de Sección -->
             <div class="relative mt-6 h-72v">
@@ -98,6 +101,7 @@ export default {
   setup() {
     let currentParrafo = ref("parrafo-0-0");
     let currentSeccion = ref("0");
+    let altImg = ref(false);
 
     onMounted(() => {
       // Guarda la sección y el parráfo actualmente visible
@@ -136,25 +140,25 @@ export default {
             titulo: "Tu negocio, en la palma de tu mano.",
             parrafo:
               "Manejá tu negocio desde donde estés, con cualquier dispositivo (desktop o mobile).",
-            foto: "1.jpeg",
+            foto: "1",
           },
           {
             titulo: "Sistemas que se adaptan a tu negocio (y no al revés)",
             parrafo:
               "¿Tu sistema actual no acompaña el crecimiento de tu empresa? Lo reemplazamos o complementamos en función de tus necesidades.",
-            foto: "3.jpeg",
+            foto: "3",
           },
           {
             titulo: "Inversiones que rinden",
             parrafo:
               "Nuestros sistemas de gestión te permiten automatizar procesos, evitar errores y ahorrar tiempo y recursos. Poné a tu equipo a trabajar en lo que verdaderamente importa.",
-            foto: "5.jpeg",
+            foto: "5",
           },
           {
             titulo: "Sistemas integrales y modulares",
             parrafo:
               "Stock, pedidos, personal, ventas... Podés empezar por uno, y vas a terminar manejando todo tu negocio en un mismo sistema.",
-            foto: "7.jpeg",
+            foto: "7",
           },
         ],
       },
@@ -167,19 +171,19 @@ export default {
             titulo: "No hay segunda oportunidad para una primera impresión.",
             parrafo:
               "Tu sitio web es tu carta de presentación. Enamorá / atraé a los usuarios contándoles qué tenés para ofrecerles.",
-            foto: "9.jpeg",
+            foto: "9",
           },
           {
             titulo: "Diseño UX",
             parrafo:
               "Diseños pensados en la facilidad de navegación, tanto en desktop como en mobile. Si algo no es fácil de encontrar, está mal diseñado.",
-            foto: "11.jpeg",
+            foto: "11",
           },
           {
             titulo: "Autoadministrables (si querés, y si no, no)",
             parrafo:
               "Sitios web llave en mano: una vez que está listo, modificás el contenido cuando vos quieras, de manera sencilla. Y si preferís, lo hacemos nosotros. ",
-            foto: "13.jpeg",
+            foto: "13",
           },
         ],
       },
@@ -192,7 +196,7 @@ export default {
             titulo: "Sé referente de tu comunidad",
             parrafo:
               "Aunque no lo creas, lo mejor que podés darles a tus clientes no son tus productos. Creamos y curamos contenido de calidad, que ofrece valor y fideliza a tus usuarios.",
-            foto: "15.jpeg",
+            foto: "15",
           },
         ],
       },
@@ -206,22 +210,25 @@ export default {
               "Hacé que los usuarios se sientan acompañados mientras recorren tu sitio web",
             parrafo:
               "Anticipar sus dudas y las respuestas que necesitan es una gran estrategia para lograr más ventas.",
-            foto: "17.jpeg",
+            foto: "17",
           },
           {
             titulo: "La voz / personalidad de tu empresa, en todos los canales",
             parrafo:
               "Redes sociales, newsletters, mailing, formularios... Que se note en todos lados quiénes son ustedes.",
-            foto: "18.jpeg",
+            foto: "18",
           },
         ],
       },
     ];
 
     const getFoto = (parrafo) => {
-      return parrafo.foto
-        ? require("../assets/secciones/" + parrafo.foto)
-        : require("../assets/secciones/1.jpeg");
+      let foto = parrafo.foto
+        ? altImg.value
+          ? parseInt(parrafo.foto) + 1
+          : parrafo.foto
+        : 1;
+      return require("../assets/secciones/" + foto + ".jpeg");
     };
     return {
       secciones,
@@ -229,6 +236,7 @@ export default {
       getIndexSeccion,
       currentSeccion,
       getFoto,
+      altImg,
     };
   },
 };

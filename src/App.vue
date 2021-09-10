@@ -52,21 +52,6 @@ export default {
     TheClientes,
   },
   setup() {
-    fetch("http://api.feli.local/filters/orders", {
-      method: "POST",
-     headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-      mode: 'cors',
-      body: JSON.stringify({ id: "hola  " }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.dataChart.push(...res);
-        this.makeDataChart();
-      });
-
     return { particlesConfig };
   },
 };
