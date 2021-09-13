@@ -1,24 +1,18 @@
 <template>
   <div
     :class="[
-      {
-        'text-white bg-black ': currentSeccion % 2 === 0,
-      },
-      {
-        'text-black bg-white ': currentSeccion % 2 !== 0,
-      },
-      'transition duration-500 relative',
+      'transition duration-500 relative text-white bg-black',
     ]"
   >
     <div
       v-for="(seccion, indexSeccion) in secciones"
       :key="indexSeccion"
-      :id="indexSeccion"
+      :id="seccion.id"
       class="text-left px-10 mb-40 seccion"
     >
       <div class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-10 md:pt-20">
         <!-- Col 1 - Desktop: Titulo y Foto de sección Sticky - Mobile: Hidden -->
-        <div class="hidden md:block col-span-1 md:col-span-2 relative">
+        <div :class="[{'order-1': indexSeccion % 2 != 0}, 'hidden md:block col-span-1 md:col-span-2 relative']">
           <div class="block md:sticky top-16 z-40">
             <div class="flex">
               <Title class="text-xl" :title="seccion.titulo" />
@@ -54,7 +48,8 @@
         </div>
 
         <!-- Col 2 - Desktop: Texto - Mobile: Foto + Texto -->
-        <div class="mt-8 md:mt-20 col-span-2 md:col-span-1 font-texto">
+        <div class="mt-8 md:mt-20 col-span-2 md:col-span-1 z-50">
+          <!--  font-texto -->
           <Title :title="seccion.titulo" class="md:hidden" />
           <div
             v-for="(parrafo, indexParrafo) in seccion.parrafos"
@@ -82,7 +77,7 @@
               <p class="text-xl md:text-2xl font-bold break-words mb-4">
                 {{ parrafo.titulo }}
               </p>
-              <p class="text-md md:text-md break-words">
+              <p class="text-md md:text-md break-words leading-7">
                 {{ parrafo.parrafo }}
               </p>
             </div>
@@ -216,7 +211,7 @@ export default {
             titulo: "La voz / personalidad de tu empresa, en todos los canales",
             parrafo:
               "Redes sociales, newsletters, mailing, formularios... Que se note en todos lados quiénes son ustedes.",
-            foto: "18",
+            foto: "19",
           },
         ],
       },
