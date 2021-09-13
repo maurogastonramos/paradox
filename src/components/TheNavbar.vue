@@ -1,10 +1,29 @@
 <template>
   <div
     :class="{ 'headroom--unpinned': scrolled }"
-    class="fixed w-full h-12 bg-black border-b border-gray-500 px-5 py-1 z-50 headroom header"
+    class="
+      fixed
+      w-full
+      h-12
+      bg-black
+      border-b border-gray-500
+      px-5
+      py-1
+      z-50
+      headroom
+      header
+      flex
+      justify-center
+    "
     v-on:scroll="handleScroll"
   >
-    <img src="@/assets/logo.png" class="max-h-full" alt="" />
+    <div class="max-h-full flex-1">
+      <img src="@/assets/logo.png" alt="" class="h-full w-auto" />
+    </div>
+
+    <div class="flex justify-center items-center">
+      <a href="./#footer" class="text-white">Contacto</a>
+    </div>
   </div>
 </template>
 

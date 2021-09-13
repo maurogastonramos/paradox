@@ -16,6 +16,15 @@ module.exports = {
       fontFamily: {
         title: ['"Orbitron"'],
         texto: ['"Montserrat"'],
+        Anurati: ["Anurati"],
+        Blanka: ["Blanka"],
+        Dual: ["Dual"],
+        Emyrl: ["Emyrl"],
+        Josefin: ["Josefin"],
+        Riviera: ["Riviera"],
+        Robota: ["Robota"],
+        Sen: ["Sen"],
+        Special: ["Special"],
       },
       keyframes: {
         float: {
@@ -36,7 +45,7 @@ module.exports = {
       translate: ["group-hover"],
       filter: ["hover", "focus"],
       animation: ["hover", "focus"],
-      zIndex: ["hover"]
+      zIndex: ["hover"],
     },
   },
   plugins: [],

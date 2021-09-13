@@ -1,6 +1,6 @@
 <template>
     <h1
-      class="text-3xl md:text-4xl xl:text-5xl filter font-title"
+      class="text-3xl md:text-4xl xl:text-5xl filter"
       data-aos="fade-in"
       data-aos-duration="1500"
       data-aos-once="true"

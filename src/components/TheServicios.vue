@@ -8,7 +8,15 @@
           <hexagon
             v-for="opcion in opciones"
             :key="opcion.id"
-            class="hover:text-main hover:z-50 transition duration-400 cursor-pointer font-light"
+            class="
+              hover:text-main
+              hover:z-50
+              transition
+              duration-400
+              cursor-pointer
+              font-light
+            "
+            @click="goTo(opcion.id)"
           >
             {{ opcion.titulo }}
           </hexagon>
@@ -30,41 +38,32 @@ export default {
     const opciones = [
       {
         id: "gestion",
-        img: "https://pomakana.com/images/icons/gestiononline.png",
         titulo: "Sistemas de Gestión",
-        texto: "Texto - Sistemas de Gestión.",
       },
       {
         id: "web",
-        img: "https://pomakana.com/images/icons/web.png",
         titulo: "Páginas web",
-        texto: "Texto - Páginas web.",
       },
       {
         id: "marketing",
-        img: "https://pomakana.com/images/icons/seo.png",
         titulo: "Marketing de contenido",
-        texto: "Texto - Marketing de contenido.",
       },
       {
         id: "comunicacion",
-        img: "https://pomakana.com/images/icons/consult.png",
         titulo: "Comunicación digital",
-        texto: "Texto - Comunicación digital.",
       },
     ];
 
-    return { opciones };
+    const goTo = (id) => {
+      let element = document.getElementById(id);
+      element.scrollIntoView();
+    };
+    return { opciones, goTo };
   },
 };
 </script>
 
 <style scoped>
-.hex-container {
-}
-.row.even {
-}
-
 svg {
   margin: -17px;
 }

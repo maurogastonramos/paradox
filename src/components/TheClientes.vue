@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto py-10 select-none bg-white text-black">
+  <div class="container mx-auto py-10 select-none text-white">
     <Title title="Nuestros clientes" />
     <div
       class="w-full flex flex-wrap justify-center py-5 items-center gap-x-10"
@@ -7,7 +7,7 @@
       <a
         v-for="(cliente, index) in clientes"
         :key="index"
-        class="w-32 h-32 md:w-40 md:h-40 flex justify-center items-center hover:animate-float "
+        class="w-32 h-32 md:w-40 md:h-40 flex justify-center items-center hover:animate-float z-50 "
         :href="cliente.url"
         target="_blank"
       >

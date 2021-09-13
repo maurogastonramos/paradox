@@ -9,12 +9,12 @@
       src="@/assets/logo.png"
       class="z-10 w-2/3"
     />
-    <div class="z-10 text-white font-title">
+    <div class="z-10 text-white ">
       <p
         data-aos="fade-in"
         data-aos-delay="1000"
         data-aos-duration="2000"
-        class="text-2xl md:text-4xl font-title"
+        class="text-2xl md:text-4xl "
       >
         Inicia tu transformación digital
       </p>
@@ -22,7 +22,7 @@
         data-aos="fade-in"
         data-aos-delay="1500"
         data-aos-duration="2000"
-        class="text-md md:text-xl font-title text-gray-100"
+        class="text-md md:text-xl  text-gray-100"
       >
         Adelantate al futuro
       </p>
@@ -38,7 +38,8 @@
       <div
         class="my-5 py-2 px-8 text-white rounded-tr-xl rounded-bl-xl rounded-tl-sm rounded-br-sm z-10"
       >
-        <p class="text-sm font-texto">
+        <p class="text-sm"> 
+          <!--  font-texto -->
           Si buscás resultados distintos, no hagas siempre lo mismo
         </p>
         <p class="w-full text-right" style="font-family:'Baloo Tamma 2';">

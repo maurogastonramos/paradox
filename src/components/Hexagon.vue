@@ -30,24 +30,26 @@ export default {};
 </script>
 
 <style scoped>
-svg:hover {
-}
 
-.hexagon:hover {
+
+/* Dibujado de stroke */
+/* .hexagon:hover {
   stroke-dasharray: 420;
   stroke-dashoffset: 420;
-  animation: rotate 1s linear forwards, glow 2s 1s infinite;
+  animation: dibujado 1s linear forwards, glow 2s 1s infinite;
 }
-
-@keyframes rotate {
+@keyframes dibujado {
   to {
     stroke-dashoffset: 0;
   }
-}
+} */
 
+.hexagon:hover {
+  animation: glow 2s infinite;
+}
 @keyframes glow {
   0%, 100% {
-    filter: drop-shadow(rgba(45, 204, 193, 0.6) 0px 0px 10px);
+    filter: drop-shadow(rgba(45, 204, 193, 0.2) 0px 0px 10px);
   }
   50% {
     filter: drop-shadow(rgba(45, 204, 193, 1) 0px 0px 20px);
