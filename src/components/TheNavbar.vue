@@ -22,7 +22,7 @@
       <img src="@/assets/logo.png" alt="" class="h-full w-auto" />
     </div>
 
-    <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center font-title">
       <a href="./#footer" class="text-white">Contacto</a>
     </div>
   </div>

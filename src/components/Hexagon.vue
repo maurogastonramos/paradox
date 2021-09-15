@@ -14,10 +14,10 @@
     ></path>
 
 
-    <foreignObject x="0" y="0" width="140" height="120">
+    <foreignObject x="0" y="0" width="140" height="126">
       <div
         xmlns="http://www.w3.org/1999/xhtml"
-        class="h-full w-full flex justify-center items-center"
+        class="h-full w-full flex justify-center items-center p-4"
       >
         <slot />
       </div>

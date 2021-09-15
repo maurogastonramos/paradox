@@ -15,7 +15,8 @@
               duration-400
               cursor-pointer
               font-light
-               pointer-events-auto
+              pointer-events-auto
+              font-title
             "
             @click="goTo(opcion.id)"
           >

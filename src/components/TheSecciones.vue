@@ -5,7 +5,7 @@
     ]"
   >
     <!-- Menu flotante izquierda -->
-    <div class="hidden lg:col-span-2 md:flex justify-center select-none">
+    <div class="hidden lg:col-span-2 lg:flex justify-center select-none">
       <div
         class="
           h-72v
@@ -269,5 +269,19 @@ export default {
 <style scoped>
 a.current {
   background: red;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("https://lh3.googleusercontent.com/t8jzr310rC5obgwRHRljXVYqpVt_LwPzoBoBknYxU9QH4sDPlItjYN_IGNbDIaK6d89pVC7XxGM87-QypJ9CmgHXSA=w640-h400-e365-rj-sc0x00ffffff");
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
