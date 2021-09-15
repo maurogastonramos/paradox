@@ -9,11 +9,12 @@
       border-b border-gray-500
       px-5
       py-1
-      z-50
+      z-60
       headroom
       header
       flex
       justify-center
+      font-texto
     "
     v-on:scroll="handleScroll"
   >

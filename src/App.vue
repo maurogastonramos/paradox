@@ -1,5 +1,5 @@
 <template>
-  <div :class="`relative z-50 pointer-events-none font-${fuenteActiva}`">
+  <div :class="`relative z-50 pointer-events-none`">
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Orbitron"
@@ -13,18 +13,6 @@
     <the-navbar class="pointer-events-auto" />
 
     <div class="h-auto py-10 md:p-0 relative pointer-events-auto z-40">
-      <select
-        name="fuentes"
-        id="fuentes"
-        v-model="fuenteActiva"
-        class="fixed top-0 right-0"
-        style="z-index: 9999999999999"
-      >
-        <option v-for="fuente in fuentes" :key="fuente" :value="fuente">
-          {{ fuente }}
-        </option>
-      </select>
-
       <Particles
         id="tsparticles2"
         class="
@@ -40,12 +28,12 @@
         :options="particlesConfig"
       />
       <the-main class="md:h-screen" />
+      <the-servicios id="servicios" />
+    </div>
 
-      <div class="bg-black">
-        <the-servicios id="servicios" />
-        <the-secciones id="secciones" />
-        <the-clientes id="clientes" />
-      </div>
+    <div class="bg-black pointer-events-auto">
+      <the-secciones id="secciones" />
+      <the-clientes id="clientes" />
     </div>
 
     <div
@@ -82,7 +70,7 @@ export default {
       "Orbitron",
       "Montserrat",
       "Anurati",
-      "Blanka", 
+      "Blanka",
       "Dual",
       "Emyrl",
       "Josefin",

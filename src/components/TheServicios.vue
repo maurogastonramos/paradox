@@ -1,7 +1,7 @@
 <template>
-  <div class="h-full w-full text-white bg-black py-10">
+  <div class="h-full w-full text-white bg-black py-10 pointer-events-none">
     <div class="container mx-auto select-none z-40 relative">
-      <Title title="Productos" />
+      <Title title="Que hacemos" />
 
       <div class="flex justify-center hex-container h-80">
         <div class="row flex justify-center items-center text-gray-500">
@@ -15,6 +15,7 @@
               duration-400
               cursor-pointer
               font-light
+               pointer-events-auto
             "
             @click="goTo(opcion.id)"
           >

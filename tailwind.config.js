@@ -8,13 +8,14 @@ module.exports = {
       },
       height: {
         "72v": "72vh",
+        "80v": "80vh",
       },
       spacing: {
         "4v": "4vh",
         "40v": "40vh",
       },
       fontFamily: {
-        title: ['"Orbitron"'],
+        title: ['"Special"'],
         texto: ['"Montserrat"'],
         Anurati: ["Anurati"],
         Blanka: ["Blanka"],
@@ -34,6 +35,9 @@ module.exports = {
       },
       animation: {
         float: "float 3s ease-in-out infinite",
+      },
+      zIndex: {
+        60: 60,
       },
     },
   },

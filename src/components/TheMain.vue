@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full flex justify-center items-center flex-col select-none bg-black z-50"
+    class="w-full h-full flex justify-center items-center flex-col select-none bg-black z-50 pointer-events-none"
   >
     <img
       data-aos="fade-down"
@@ -14,18 +14,18 @@
         data-aos="fade-in"
         data-aos-delay="1000"
         data-aos-duration="2000"
-        class="text-2xl md:text-4xl "
+        class="text-2xl md:text-4xl font-title"
       >
-        Inicia tu transformación digital
+        Iniciá tu transformación digital
       </p>
-      <p
+      <!-- <p
         data-aos="fade-in"
         data-aos-delay="1500"
         data-aos-duration="2000"
         class="text-md md:text-xl  text-gray-100"
       >
         Adelantate al futuro
-      </p>
+      </p> -->
     </div>
 
     <div
