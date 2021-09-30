@@ -33,6 +33,7 @@
 
     <div class="bg-black pointer-events-auto">
       <the-secciones id="secciones" />
+      <the-equipo />
       <the-clientes id="clientes" />
     </div>
 
@@ -54,6 +55,7 @@ import TheClientes from "@/components/TheClientes.vue";
 import TheFooter from "@/components/TheFooter.vue";
 import particlesConfig from "@/assets/particlesConfig.json";
 import { ref } from "@vue/reactivity";
+import TheEquipo from './components/TheEquipo.vue';
 
 export default {
   name: "App",
@@ -64,6 +66,7 @@ export default {
     TheSecciones,
     TheNavbar,
     TheClientes,
+    TheEquipo,
   },
   setup() {
     const fuentes = [

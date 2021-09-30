@@ -50,6 +50,7 @@ module.exports = {
       filter: ["hover", "focus"],
       animation: ["hover", "focus"],
       zIndex: ["hover"],
+      opacity: ["group-hover"],
     },
   },
   plugins: [],
