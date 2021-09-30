@@ -2,7 +2,7 @@
   <div class="container mx-auto py-10 select-none text-white">
     <Title title="Nuestros clientes" />
     <div
-      class="w-full flex flex-wrap justify-center py-5 items-center gap-x-10 gap-y-6"
+      class="w-full flex flex-wrap justify-center pt-16 pb-5 items-center gap-x-10 gap-y-6"
     >
       <a
         v-for="(cliente, index) in clientes"

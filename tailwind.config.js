@@ -8,7 +8,7 @@ module.exports = {
       },
       height: {
         "72v": "72vh",
-        "80v": "80vh",
+        "80v": "79vh",
       },
       spacing: {
         "4v": "4vh",

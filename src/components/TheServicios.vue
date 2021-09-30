@@ -1,7 +1,7 @@
 <template>
   <div class="h-full w-full text-white bg-black py-10 pointer-events-none">
     <div class="container mx-auto select-none z-40 relative">
-      <Title title="Que hacemos" />
+      <Title title="Qué hacemos" />
 
       <div class="flex justify-center hex-container h-80">
         <div class="row flex justify-center items-center text-gray-500">
@@ -12,6 +12,8 @@
               hover:text-main
               hover:z-50
               transition
+              w-32
+              sm:w-40
               duration-400
               cursor-pointer
               font-light
@@ -47,12 +49,8 @@ export default {
         titulo: "Páginas web",
       },
       {
-        id: "marketing",
-        titulo: "Marketing de contenido",
-      },
-      {
         id: "comunicacion",
-        titulo: "Comunicación digital",
+        titulo: "Contenido digital",
       },
     ];
 
@@ -67,10 +65,18 @@ export default {
 
 <style scoped>
 svg {
-  margin: -17px;
+  margin: -21px;
 }
-svg:nth-child(even) {
+svg:nth-child(odd) {
   position: relative;
-  bottom: 60px;
+  bottom: 4.2rem;
+}
+@media screen and (max-width: 640px) {
+  svg {
+    margin: -1.1rem;
+  }
+  svg:nth-child(odd) {
+    bottom: 3.3rem;
+  }
 }
 </style>

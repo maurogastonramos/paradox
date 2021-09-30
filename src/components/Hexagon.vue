@@ -2,10 +2,8 @@
   <svg
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
-    width="140"
-    height="122"
     class="hexagon"
-    viewbox="0 0 140 121.2435565298214"
+    viewBox="-2 0 144 124"
   >
     <path
       stroke="currentColor"
@@ -14,10 +12,11 @@
     ></path>
 
 
-    <foreignObject x="0" y="0" width="140" height="126">
+    <foreignObject x="0" y="0" width="142" height="124">
       <div
         xmlns="http://www.w3.org/1999/xhtml"
-        class="h-full w-full flex justify-center items-center p-4"
+        class="h-full w-full flex justify-center items-center p-4 text-md"
+        style="font-size:0.9rem"
       >
         <slot />
       </div>

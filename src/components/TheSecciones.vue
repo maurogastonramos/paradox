@@ -23,12 +23,19 @@
           z-50
         "
       >
-        <div v-for="(seccion, indexSeccion) in secciones" :key="indexSeccion" class="text-left">
+        <div
+          v-for="(seccion, indexSeccion) in secciones"
+          :key="indexSeccion"
+          class="text-left"
+        >
           <a
             :href="`#${seccion.id}`"
-            :class="[{ 'text-gray-500': getIndexSeccion() !== indexSeccion}, 'transition duration-500 font-title']"
+            :class="[
+              { 'text-gray-500': getIndexSeccion() !== indexSeccion },
+              'transition duration-500 font-title',
+            ]"
           >
-            {{ seccion.titulo }}
+            <span class="select-none"> {{ seccion.titulo }}</span>
           </a>
         </div>
       </div>
@@ -38,21 +45,21 @@
       <div
         v-for="(seccion, indexSeccion) in secciones"
         :key="indexSeccion"
-        :id="seccion.id"
-        class="text-left px-10 mb-40 seccion"
+        class="text-left px-10 mb-10 md:mb-30 seccion"
       >
         <div
-          class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-10 md:pt-20"
+          class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-16 md:pt-20"
+          :id="seccion.id"
         >
           <!-- Col 1 - Desktop: Titulo y Foto de sección Sticky - Mobile: Hidden -->
-          <div :class="['hidden md:block col-span-1 md:col-span-2 relative']">
+          <div class="hidden md:block col-span-1 md:col-span-2 relative">
             <div class="block md:sticky top-16 z-40">
               <div class="flex">
-                <Title class="text-xl block lg:hidden" :title="seccion.titulo" />
+                <Title class="text-xl block" :title="seccion.titulo" />
               </div>
 
               <!-- Foto de Sección -->
-              <div class="relative mt-6 h-72v md:h-80v font-texto">
+              <div class="relative mt-6 lg:mt-0 h-72v md:h-80v font-texto">
                 <div
                   v-for="(parrafo, indexParrafo) in seccion.parrafos"
                   :key="indexParrafo"
@@ -70,6 +77,7 @@
                     'transition h-72v md:h-80v duration-500 w-full block md:absolute top-0 bottom-0 left-0 right-0',
                   ]"
                 >
+                  <div class="w-full h-full absolute"></div>
                   <img
                     :src="getFoto(parrafo)"
                     class="w-full h-full object-contain"
@@ -111,8 +119,16 @@
                 <p class="text-xl md:text-2xl font-bold break-words mb-4">
                   {{ parrafo.titulo }}
                 </p>
-                <p class="text-md md:text-md break-words leading-6">
-                  {{ parrafo.parrafo }}
+                <p
+                  class="
+                    text-md
+                    md:text-md
+                    break-words
+                    leading-6
+                    whitespace-pre-line
+                  "
+                >
+                  {{ formatParrafo(parrafo.parrafo) }}
                 </p>
               </div>
             </div>
@@ -172,15 +188,15 @@ export default {
             foto: "1",
           },
           {
-            titulo: "Sistemas que se adaptan a tu negocio (y no al revés)",
+            titulo: "Sistemas creados para tu negocio",
             parrafo:
-              "¿Tu sistema actual no acompaña el crecimiento de tu empresa? Lo reemplazamos o complementamos en función de tus necesidades.",
+              "¿Tu sistema actual no acompaña el crecimiento de tu empresa?\n Lo reemplazamos o complementamos en función de tus necesidades.",
             foto: "3",
           },
           {
             titulo: "Inversiones que rinden",
             parrafo:
-              "Nuestros sistemas de gestión te permiten automatizar procesos, evitar errores y ahorrar tiempo y recursos. Poné a tu equipo a trabajar en lo que verdaderamente importa.",
+              "Desarrollamos sistemas de gestión que te permitan automatizar procesos, evitar errores y ahorrar tiempo y recursos. Poné a tu equipo a trabajar en lo que verdaderamente importa.",
             foto: "5",
           },
           {
@@ -188,6 +204,12 @@ export default {
             parrafo:
               "Stock, pedidos, personal, ventas... Podés empezar por uno, y vas a terminar manejando todo tu negocio en un mismo sistema.",
             foto: "7",
+          },
+          {
+            titulo: "Descubrí lo que tus datos tienen para contarte",
+            parrafo:
+              "Nuestros tableros interactivos te permiten aprovechar la información de tu empresa. Medí, analizá, anticipá y tomá las decisiones más redituables.",
+            foto: "16",
           },
         ],
       },
@@ -197,9 +219,9 @@ export default {
         theme: "light",
         parrafos: [
           {
-            titulo: "No hay segunda oportunidad para una primera impresión.",
+            titulo: "No hay segunda oportunidad para una primera impresión",
             parrafo:
-              "Tu sitio web es tu carta de presentación. Enamorá / atraé a los usuarios contándoles qué tenés para ofrecerles.",
+              "Tu sitio web es tu carta de presentación. Atraé a los usuarios contándoles qué tenés para ofrecerles.",
             foto: "9",
           },
           {
@@ -217,35 +239,33 @@ export default {
         ],
       },
       {
-        id: "marketing",
-        titulo: "Marketing de contenido",
-        theme: "dark",
+        id: "comunicacion",
+        titulo: "Contenido digital",
+        theme: "light",
         parrafos: [
           {
             titulo: "Sé referente de tu comunidad",
             parrafo:
-              "Aunque no lo creas, lo mejor que podés darles a tus clientes no son tus productos. Creamos y curamos contenido de calidad, que ofrece valor y fideliza a tus usuarios.",
-            foto: "16",
+              "Pensá más allá de tus productos: acompañá a tus clientes antes, durante y después de cada compra. Te ayudamos a crear y curar contenido de calidad, que ofrece valor y fideliza a tus usuarios.",
+            foto: "13",
           },
-        ],
-      },
-      {
-        id: "comunicacion",
-        titulo: "Comunicación digital",
-        theme: "light",
-        parrafos: [
           {
-            titulo:
-              "Hacé que los usuarios se sientan acompañados mientras recorren tu sitio web",
+            titulo: "Acompañá a los usuarios mientras recorren tu sitio web ",
             parrafo:
-              "Anticipar sus dudas y las respuestas que necesitan es una gran estrategia para lograr más ventas.",
+              "Anticipar sus dudas y las respuestas que necesitan es una gran estrategia para lograr más ventas. Repensamos los textos de tu web hasta que queden perfectos.",
             foto: "18",
           },
           {
-            titulo: "La voz / personalidad de tu empresa, en todos los canales",
+            titulo: "La personalidad de tu empresa, en todos los canales",
             parrafo:
               "Redes sociales, newsletters, mailing, formularios... Que se note en todos lados quiénes son ustedes.",
             foto: "20",
+          },
+          {
+            titulo: "Publicitate en la web",
+            parrafo:
+              "Diseñamos estrategias focalizadas en los usuarios a los que te interesa llegar. Creamos anuncios digitales para que te encuentren quienes realmente te necesitan.",
+            foto: "19",
           },
         ],
       },
@@ -254,12 +274,19 @@ export default {
     const getFoto = (parrafo) => {
       return require("../assets/secciones/" + parrafo.foto + ".jpeg");
     };
+
+    const formatParrafo = (texto) => {
+      const regex = /(\.)\s/g;
+      console.log(texto, texto.replace(regex, ".\n"));
+      return texto.replace(regex, ".\n");
+    };
     return {
       secciones,
       currentParrafo,
       getIndexSeccion,
       currentSeccion,
       getFoto,
+      formatParrafo,
     };
   },
 };
@@ -267,10 +294,6 @@ export default {
 
 
 <style scoped>
-a.current {
-  background: red;
-}
-
 .parallax {
   /* The image used */
   background-image: url("https://lh3.googleusercontent.com/t8jzr310rC5obgwRHRljXVYqpVt_LwPzoBoBknYxU9QH4sDPlItjYN_IGNbDIaK6d89pVC7XxGM87-QypJ9CmgHXSA=w640-h400-e365-rj-sc0x00ffffff");
