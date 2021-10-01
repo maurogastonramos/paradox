@@ -1,4 +1,6 @@
 <template>
+<div class="mb-20 md:mb-40">
+  <Title title="Equipo" class="text-white mb-10"/>
   <div class="w-full mx-auto mb-20 my-5 flex justify-center">
     <div class="grid equipo-container justify-items-center relative">
       <hexagon
@@ -12,14 +14,17 @@
       </hexagon>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
 import Hexagon from "./Hexagon.vue";
+import Title from "./Title.vue";
 
 export default {
   components: {
     Hexagon,
+    Title,
   },
   setup() {
     const equipo = [
@@ -65,7 +70,7 @@ export default {
     grid-template-columns: repeat(2, minmax(0, 120px));
     grid-template-rows: repeat(4, minmax(0, 135px));
   }
-svg:nth-child(even) {
+  svg:nth-child(even) {
     position: relative;
     top: 4.3rem;
   }

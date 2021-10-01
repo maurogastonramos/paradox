@@ -12,7 +12,7 @@
 
     <the-navbar class="pointer-events-auto" />
 
-    <div class="h-auto py-10 md:p-0 relative pointer-events-auto z-40">
+    <div class="h-auto py-10 md:p-0 relative pointer-events-auto z-40 bg-black">
       <Particles
         id="tsparticles2"
         class="

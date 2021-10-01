@@ -3,7 +3,7 @@
     <div class="container mx-auto select-none z-40 relative">
       <Title title="Qué hacemos" />
 
-      <div class="flex justify-center hex-container h-80">
+      <div class="flex justify-center hex-container h-80 md:mt-20">
         <div class="row flex justify-center items-center text-gray-500">
           <hexagon
             v-for="opcion in opciones"
@@ -65,18 +65,20 @@ export default {
 
 <style scoped>
 svg {
-  margin: -21px;
+  margin: -1.7rem;
 }
 svg:nth-child(odd) {
   position: relative;
-  bottom: 4.2rem;
+  bottom: 5.4rem;
 }
-@media screen and (max-width: 640px) {
+
+@media screen and (max-width: 768px) {
   svg {
-    margin: -1.1rem;
+    margin: -21px;
   }
   svg:nth-child(odd) {
-    bottom: 3.3rem;
+    position: relative;
+    bottom: 4.2rem;
   }
 }
 </style>

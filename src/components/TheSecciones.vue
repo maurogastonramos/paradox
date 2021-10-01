@@ -48,7 +48,7 @@
         class="text-left px-10 mb-10 md:mb-30 seccion"
       >
         <div
-          class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-16 md:pt-20"
+          class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-16 md:pt-20 pt-8"
           :id="seccion.id"
         >
           <!-- Col 1 - Desktop: Titulo y Foto de sección Sticky - Mobile: Hidden -->
