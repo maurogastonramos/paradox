@@ -2,21 +2,31 @@
   <svg
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
-    class="hexagon group w-40 h-40 -mx-40 md:w-52 md:h-52 md:-mx-52 overflow-visible"
+    class="hexagon group overflow-visible"
     viewBox="-2 0 144 124"
   >
+    <!-- Sin Imagen -->
     <path
       stroke="currentColor"
       stroke-width="3"
       class="z-50"
       d="M0 60.6217782649107L35 0L105 0L140 60.6217782649107L105 121.2435565298214L35 121.2435565298214Z"
     ></path>
+    <foreignObject x="0" y="0" width="142" height="124">
+      <div
+        xmlns="http://www.w3.org/1999/xhtml"
+        class="h-full w-full flex justify-center items-center p-4 text-md"
+        style="font-size: 0.9rem"
+      >
+        <slot />
+      </div>
+    </foreignObject>
 
+    <!-- Con imagen -->
     <defs v-if="withImage">
       <clipPath id="circleView">
         <path
-          stroke="transparent"
-          stroke-width="3"
+          stroke=""
           d="M0 60.6217782649107L35 0L105 0L140 60.6217782649107L105 121.2435565298214L35 121.2435565298214Z"
         ></path>
       </clipPath>
@@ -25,7 +35,7 @@
       v-if="withImage"
       x="-2"
       y="0"
-      class="transition duration-300 w-full h-full z-10"
+      class="w-full h-full z-10"
       preserveAspectRatio="xMinYMin slice"
       :xlink:href="require('../assets/equipo/' + image + '1.jpg')"
       clip-path="url(#circleView)"
@@ -35,8 +45,6 @@
       x="-2"
       y="0"
       class="
-        transition
-        duration-300
         opacity-0
         group-hover:grayscale-0 group-hover:opacity-100
         w-full
@@ -47,12 +55,19 @@
       :xlink:href="require('../assets/equipo/' + image + '2.jpg')"
       clip-path="url(#circleView)"
     />
+    <path
+      v-if="withImage"
+      stroke="currentColor"
+      stroke-width="3"
+      fill="transparent"
+      class="z-50"
+      d="M0 60.6217782649107L35 0L105 0L140 60.6217782649107L105 121.2435565298214L35 121.2435565298214Z"
+    ></path>
     <foreignObject x="0" y="0" width="142" height="124">
       <div
         v-if="withImage"
         xmlns="http://www.w3.org/1999/xhtml"
-        class="h-full w-full flex justify-center items-end p-4 text-xl   transition
-        duration-300
+        class="h-full w-full flex justify-center items-end p-4 text-xl
         opacity-0
         group-hover:opacity-100"
       >
@@ -63,14 +78,8 @@
           {{ nombre }}
         </div>
       </div>
-      <div
-        xmlns="http://www.w3.org/1999/xhtml"
-        class="h-full w-full flex justify-center items-center p-4 text-md"
-        style="font-size: 0.9rem"
-      >
-        <slot />
-      </div>
     </foreignObject>
+
   </svg>
 </template>
 
@@ -106,7 +115,7 @@ export default {
 } */
 
 .hexagon:hover {
-  animation: glow 2s infinite;
+  animation: glow 3s infinite;
 }
 @keyframes glow {
   0%,
@@ -114,7 +123,16 @@ export default {
     filter: drop-shadow(rgba(45, 204, 193, 0.2) 0px 0px 10px);
   }
   50% {
-    filter: drop-shadow(rgba(45, 204, 193, 1) 0px 0px 20px);
+    filter: drop-shadow(rgba(45, 204, 193, 1) 0px 0px 80px);
   }
 }
+/* @keyframes glow {
+  0%,
+  100% {
+    filter: drop-shadow(rgba(45, 204, 193, 0.2) 0px 0px 10px);
+  }
+  50% {
+    filter: drop-shadow(rgba(45, 204, 193, 1) 0px 0px 20px);
+  }
+} */
 </style>
