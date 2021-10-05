@@ -2,7 +2,7 @@
   <svg
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
-    class="hexagon group overflow-visible"
+    :class="[{'withImage': withImage},'hexagon group overflow-visible']"
     viewBox="-2 0 144 124"
   >
     <!-- Sin Imagen -->
@@ -114,8 +114,11 @@ export default {
   }
 } */
 
-.hexagon:hover {
+.hexagon.withImage:hover {
   animation: glow 3s infinite;
+}
+.hexagon:not(.withImage):hover {
+  animation: glow-low 2s infinite;
 }
 @keyframes glow {
   0%,
@@ -126,7 +129,7 @@ export default {
     filter: drop-shadow(rgba(45, 204, 193, 1) 0px 0px 80px);
   }
 }
-/* @keyframes glow {
+@keyframes glow-low {
   0%,
   100% {
     filter: drop-shadow(rgba(45, 204, 193, 0.2) 0px 0px 10px);
@@ -134,5 +137,5 @@ export default {
   50% {
     filter: drop-shadow(rgba(45, 204, 193, 1) 0px 0px 20px);
   }
-} */
+}
 </style>
