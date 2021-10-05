@@ -1,11 +1,12 @@
 module.exports = {
+  purge: ["./src/**/*.html", "./src/**/*.vue"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
         main: "#2dccc1",
         secondary: "#7C69C3",
-        'gray-c': "#CCCCCC"
+        "gray-c": "#CCCCCC",
       },
       height: {
         "72v": "72vh",

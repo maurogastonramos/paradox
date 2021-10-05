@@ -105,6 +105,8 @@ export default {
 
 
 <style lang="scss" scoped>
+@use 'sass:math';
+
 @mixin glitchCopy {
   content: attr(data-text);
   position: absolute;
@@ -155,9 +157,9 @@ skew to change the 'thickness' of the glitch.*/
 @keyframes glitch-anim {
   $steps: 20;
   @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
+    #{percentage($i*(math.div(1, $steps)))} {
       clip: rect(random(100) + px, 9999px, random(100) + px, 0);
-      transform: skew((random(100) / 100) + deg);
+      transform: skew(math.div(random(100), 100) + deg);
     }
   }
 }
@@ -166,9 +168,9 @@ skew to change the 'thickness' of the glitch.*/
 @keyframes glitch-anim2 {
   $steps: 20;
   @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
+    #{percentage($i*(math.div(1, $steps)))} {
       clip: rect(random(100) + px, 9999px, random(100) + px, 0);
-      transform: skew((random(100) / 100) + deg);
+      transform: skew(math.div(random(100), 100) + deg);
     }
   }
 }
@@ -177,7 +179,7 @@ skew to change the 'thickness' of the glitch.*/
 @keyframes glitch-skew {
   $steps: 10;
   @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
+    #{percentage($i*(math.div(1, $steps)))} {
       transform: skew((random(10) - 5) + deg);
     }
   }
