@@ -22,7 +22,12 @@
       <img src="@/assets/logo.png" alt="" class="h-full w-auto" />
     </div>
 
-    <div class="flex justify-center items-center font-title">
+    <div class="mx-4 flex items-center justify-center">
+      <div class="text-xs border border-main text-main hover:bg-main hover:text-white cursor-pointer transition duration-300 px-1">
+        ENG
+      </div>
+    </div>
+    <div class="flex justify-center items-center font-title relative top-0.5">
       <a href="./#footer" class="text-white">Contacto</a>
     </div>
   </div>

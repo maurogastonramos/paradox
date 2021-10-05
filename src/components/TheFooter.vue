@@ -8,6 +8,8 @@
       fixed
       bottom-0
       flex
+      flex-col
+      sm:flex-row
       justify-center
       items-center
       gap-x-5

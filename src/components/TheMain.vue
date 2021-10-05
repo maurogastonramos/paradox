@@ -9,11 +9,11 @@
       flex-col
       select-none
       bg-black
-      z-50
+      relative
       pointer-events-none
     "
   >
-    <div class="w-4/5 md:w-6/12 max-w-screen-md">
+    <div class="w-4/5 sm:w-8/12 md:w-6/12 max-w-screen-md">
       <img
         data-aos="fade-down"
         data-aos-duration="1000"
@@ -27,7 +27,7 @@
         data-aos="fade-in"
         data-aos-delay="1000"
         data-aos-duration="2000"
-        class="text-sm md:text-xl lg:text-2xl font-title"
+        class="text-md sm:text-xl lg:text-3xl font-title"
       >
         Iniciá tu transformación digital
       </p>
@@ -43,10 +43,11 @@
         class="
           my-5
           py-2
-          px-8
+          sm:px-8
           text-center text-xs
           lg:text-lg
-          space-y-8
+          space-y-2
+          md:space-y-8
           text-white
           rounded-tr-xl
           relative
@@ -55,10 +56,22 @@
         "
       >
         <div
-          class="text-md glitch font-title"
+          class="hidden sm:block text-md glitch font-title"
           data-text="Si buscás resultados distintos, no hagas siempre lo mismo"
         >
           Si buscás resultados distintos, no hagas siempre lo mismo
+        </div>
+        <div
+          class="sm:hidden text-md glitch font-title"
+          data-text="Si buscás resultados distintos,"
+        >
+          Si buscás resultados distintos,
+        </div>
+        <div
+          class="sm:hidden text-md glitch font-title"
+          data-text="no hagas siempre lo mismo"
+        >
+          no hagas siempre lo mismo
         </div>
         <p
           class="w-full text-right glitch"
@@ -69,6 +82,16 @@
         </p>
       </div>
     </div>
+
+      <div class="animate-bounce absolute bottom-5 z-10 cursor-pointer">
+        <a href="#main">
+          <img
+            src="@/assets/chevron-down.svg"
+            class="w-10 h-10 p-0 border rounded-full m-4"
+          />
+        </a>
+      </div>
+
     <div class="absolute bottom-10" id="main"></div>
   </div>
 </template>
@@ -82,7 +105,6 @@ export default {
 
 
 <style lang="scss" scoped>
-
 @mixin glitchCopy {
   content: attr(data-text);
   position: absolute;
@@ -98,7 +120,7 @@ export default {
   letter-spacing: 0.1em;
   /* Animation provies a slight random skew. Check bottom of doc
 	for more information on how to random skew. */
-  animation: glitch-skew 2s infinite linear alternate-reverse;
+  animation: glitch-skew 4s infinite linear alternate-reverse;
 
   // Creates a copy before our text.
   &::before {

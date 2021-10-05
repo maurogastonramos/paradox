@@ -48,7 +48,7 @@
         class="text-left px-10 mb-10 md:mb-30 seccion"
       >
         <div
-          class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-16 md:pt-20 pt-8"
+          class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-12 md:pt-20 pt-8"
           :id="seccion.id"
         >
           <!-- Col 1 - Desktop: Titulo y Foto de sección Sticky - Mobile: Hidden -->
@@ -178,7 +178,7 @@ export default {
     const secciones = [
       {
         id: "gestion",
-        titulo: "Sistemas de Gestión",
+        titulo: "Sistemas de gestión",
         theme: "light",
         parrafos: [
           {
@@ -277,7 +277,6 @@ export default {
 
     const formatParrafo = (texto) => {
       const regex = /(\.)\s/g;
-      console.log(texto, texto.replace(regex, ".\n"));
       return texto.replace(regex, ".\n");
     };
     return {
