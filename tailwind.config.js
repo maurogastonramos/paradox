@@ -5,6 +5,7 @@ module.exports = {
       colors: {
         main: "#2dccc1",
         secondary: "#7C69C3",
+        'gray-c': "#CCCCCC"
       },
       height: {
         "72v": "72vh",
@@ -17,15 +18,6 @@ module.exports = {
       fontFamily: {
         title: ['"Special"'],
         texto: ['"Montserrat"'],
-        Anurati: ["Anurati"],
-        Blanka: ["Blanka"],
-        Dual: ["Dual"],
-        Emyrl: ["Emyrl"],
-        Josefin: ["Josefin"],
-        Riviera: ["Riviera"],
-        Robota: ["Robota"],
-        Sen: ["Sen"],
-        Special: ["Special"],
       },
       keyframes: {
         float: {

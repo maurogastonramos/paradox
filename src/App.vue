@@ -12,7 +12,10 @@
 
     <the-navbar class="pointer-events-auto" />
 
-    <div class="h-auto py-10 md:p-0 relative pointer-events-auto z-40 bg-black">
+    <div class="h-auto md:p-0 relative pointer-events-auto z-40 bg-black">
+      
+      <the-main class="h-screen pointer-events-auto py-10" />
+      <the-servicios id="servicios" />
       <Particles
         id="tsparticles2"
         class="
@@ -22,13 +25,10 @@
           top-0
           right-0
           left-0
-          z-10
           pointer-events-none
         "
         :options="particlesConfig"
       />
-      <the-main class="md:h-screen" />
-      <the-servicios id="servicios" />
     </div>
 
     <div class="bg-black pointer-events-auto">
@@ -104,38 +104,6 @@ circles {
   z-index: 10;
 }
 
-@font-face {
-  font-family: Anurati;
-  src: url("./assets/fonts/Anurati-Regular.otf");
-}
-@font-face {
-  font-family: Blanka;
-  src: url("./assets/fonts/Blanka-Regular.ttf");
-}
-@font-face {
-  font-family: Dual;
-  src: url("./assets/fonts/Dual-300.ttf");
-}
-@font-face {
-  font-family: Emyrl;
-  src: url("./assets/fonts/EMYRLAdemo.ttf");
-}
-@font-face {
-  font-family: Josefin;
-  src: url("./assets/fonts/JosefinSans-Regular.ttf");
-}
-@font-face {
-  font-family: Riviera;
-  src: url("./assets/fonts/Riviera.otf");
-}
-@font-face {
-  font-family: Robota;
-  src: url("./assets/fonts/Robota-NonCommercial.otf");
-}
-@font-face {
-  font-family: Sen;
-  src: url("./assets/fonts/Sen-Regular.ttf");
-}
 @font-face {
   font-family: Special;
   src: url("./assets/fonts/SpecialElite-Regular.ttf");
