@@ -35,6 +35,7 @@ export default {
       { nombre: "Fabri", foto: "fabri" },
       { nombre: "Rebe", foto: "rebe" },
       { nombre: "Mauro", foto: "mauro" },      
+      { nombre: "Trefu", foto: "trefu" },      
     ];
 
     return { equipo };
@@ -62,7 +63,7 @@ export default {
     grid-template-columns: repeat(3, minmax(0, 125px));
     grid-template-rows: repeat(3, minmax(0, 145px));
   }
-  svg:nth-child(3n + 2) {
+  svg:nth-child(3n + 1), svg:nth-child(3n + 3) {
     position: relative;
     top: 4.6rem;
   }

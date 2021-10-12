@@ -108,77 +108,98 @@ export default {
         img: "porcinos.png",
         url: "http://porcinos.org.ar",
         padding: "0.2rem",
-        filter: 'brightness(.9) saturate(0) opacity(.9)'
+        filter: "brightness(.9) saturate(0) opacity(.9)",
       },
-      { nombre: "Gruposi", img: "gruposi.png", url: "http://gruposi.com.ar", filter: 'brightness(1.4) saturate(0) opacity(.9)' },
+      {
+        nombre: "Gruposi",
+        img: "gruposi.png",
+        url: "http://gruposi.com.ar",
+        filter: "brightness(1.4) saturate(0) opacity(.9)",
+      },
       {
         nombre: "Learnba",
         img: "learnba.png",
         url: "http://learnba.pomakana.com",
-        filter: 'brightness(.8) saturate(0) opacity(.9)'
+        filter: "brightness(.8) saturate(0) opacity(.9)",
       },
       {
         nombre: "Todohusqvarna",
         img: "todohusqvarna.png",
         url: "https://www.todohusqvarna.com.ar/jardin/home",
         padding: "0 .7rem",
-        filter: 'brightness(.8) saturate(0) opacity(.9)'
+        filter: "brightness(.8) saturate(0) opacity(.9)",
       },
       {
         nombre: "Varteco",
         img: "varteco.png",
         url: "http://varteco.com.ar",
         padding: "0 .7rem",
-        filter: 'brightness(1.9) saturate(0) opacity(1)'
+        filter: "brightness(1.9) saturate(0) opacity(1)",
       },
       {
         nombre: "El Vagón",
         img: "elvagon.png",
         url: "http://elvagon.pomakana.com",
 
-        filter: 'brightness(.8) saturate(0) opacity(.9)'
+        filter: "brightness(.8) saturate(0) opacity(.9)",
       },
       {
         nombre: "Gstarcad",
         img: "gstarcad.png",
         url: "https://gstarcad.com.ar",
         padding: "0 .4rem",
-        filter: 'brightness(2) saturate(0) opacity(.9)'
+        filter: "brightness(2) saturate(0) opacity(.9)",
       },
       {
         nombre: "Molamaq",
         img: "molamaq.png",
         url: "https://www.molamaq.com/jardin/home",
         padding: "0 .5rem",
-        filter: 'brightness(3.5) saturate(0) opacity(.9)'
+        filter: "brightness(3.5) saturate(0) opacity(.9)",
       },
       {
         nombre: "Solo Playa Argentina",
         img: "soloplaya.png",
         url: "http://www.soloplayaargentina.com.ar",
         padding: "0 .5rem",
-        filter: 'brightness(1.4) saturate(0) opacity(.9)'
+        filter: "brightness(1.4) saturate(0) opacity(.9)",
       },
-      { nombre: "o2bip", img: "o2bip.png", url: "http://o2bip.pomakana.com", filter: 'brightness(1.4) saturate(0) opacity(.9)'},
       {
-        nombre: "eapost",
-        img: "eapost.png",
-        url: "http://eapost.com.ar",
-        padding: "0 .7rem",
-        filter: 'brightness(2) saturate(0) opacity(.9)'
+        nombre: "o2bip",
+        img: "o2bip.png",
+        url: "http://o2bip.pomakana.com",
+        filter: "brightness(1.4) saturate(0) opacity(.9)",
       },
       {
         nombre: "Reagens",
         img: "reagens.png",
         url: "http://reagensvarteco.com.ar",
-        filter: 'brightness(2) saturate(0) opacity(.9)'
+        filter: "brightness(2) saturate(0) opacity(.9)",
       },
-      { nombre: "ad-one", img: "adone.png", url: "https://www.ad-one.com.ar", filter: 'brightness(.8) saturate(0) opacity(.9)' },
+      {
+        nombre: "ad-one",
+        img: "adone.png",
+        url: "https://www.ad-one.com.ar",
+        filter: "brightness(.8) saturate(0) opacity(.9)",
+      },
       {
         nombre: "Jardines de Garzón",
         img: "jardines.jpg",
         url: "https://www.instagram.com/jardinesdegarzonsrl/",
-        filter: 'brightness(1.2) saturate(0) opacity(.9)'
+        filter: "brightness(1.2) saturate(0) opacity(.9)",
+      },
+      {
+        nombre: "eapost",
+        img: "eapost.png",
+        url: "http://eapost.com.ar",
+        padding: "0 .7rem",
+        filter: "brightness(2) saturate(0) opacity(.9)",
+      },
+      {
+        nombre: "illa",
+        img: "illa.png",
+        url: "https://www.illadelsbous.com",
+        filter: "brightness(0.8) saturate(0) opacity(1)",
       },
     ];
     return { clientes };

@@ -32,6 +32,9 @@ module.exports = {
       zIndex: {
         60: 60,
       },
+      screens: {
+        mobile: [{ min: "435px", max: "767px" }],
+      },
     },
   },
   variants: {

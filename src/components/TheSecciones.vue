@@ -110,7 +110,7 @@
               ]"
             >
               <div>
-                <div class="mt-8 pb-5 w-full h-80 md:hidden">
+                <div class="mt-8 pb-5 w-full h-80 md:hidden relative">
                   <img
                     :src="getFoto(parrafo)"
                     class="w-full h-full object-cover"
@@ -291,19 +291,3 @@ export default {
 };
 </script>
 
-
-<style scoped>
-.parallax {
-  /* The image used */
-  background-image: url("https://lh3.googleusercontent.com/t8jzr310rC5obgwRHRljXVYqpVt_LwPzoBoBknYxU9QH4sDPlItjYN_IGNbDIaK6d89pVC7XxGM87-QypJ9CmgHXSA=w640-h400-e365-rj-sc0x00ffffff");
-
-  /* Set a specific height */
-  min-height: 500px;
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-</style>

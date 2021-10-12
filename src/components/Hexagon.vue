@@ -126,7 +126,7 @@ export default {
     filter: drop-shadow(rgba(45, 204, 193, 0.2) 0px 0px 10px);
   }
   50% {
-    filter: drop-shadow(rgba(45, 204, 193, 1) 0px 0px 80px);
+    filter: drop-shadow(rgba(45, 204, 193, 1) 0px 0px 35px);
   }
 }
 @keyframes glow-low {
