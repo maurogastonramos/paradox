@@ -34,7 +34,7 @@
     <div class="bg-black pointer-events-auto">
       <the-secciones id="secciones" />
       <the-equipo class="mt-10 md:mt-0" />
-      <the-clientes id="clientes" />
+      <the-clientes class="mt-28 md:mt-0" id="clientes" />
     </div>
 
     <div
