@@ -33,7 +33,7 @@
 
     <div class="bg-black pointer-events-auto">
       <the-secciones id="secciones" />
-      <the-equipo />
+      <the-equipo class="mt-10 md:mt-0" />
       <the-clientes id="clientes" />
     </div>
 

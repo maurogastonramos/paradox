@@ -51,6 +51,12 @@ export default {
   setup() {
     const clientes = [
       {
+        nombre: "We Golf",
+        img: "wegolf.png",
+        url: "https://www.we.golf",
+        filter: "brightness(3) saturate(0) opacity(0.8)",
+      },
+      {
         nombre: "Feli",
         img: "feli.png",
         url: "https://www.feli.com.uy",
@@ -61,12 +67,6 @@ export default {
         img: "rumbo.png",
         url: "https://www.rumbosrl.com.ar",
         padding: ".6rem",
-        filter: "brightness(3) saturate(0) opacity(0.8)",
-      },
-      {
-        nombre: "We Golf",
-        img: "wegolf.png",
-        url: "https://www.we.golf",
         filter: "brightness(3) saturate(0) opacity(0.8)",
       },
       {
@@ -100,7 +100,7 @@ export default {
         nombre: "Rolic",
         img: "rolic.png",
         url: "https://www.rolic.com.ar",
-        padding: ".4rem",
+        padding: ".5rem",
         filter: "brightness(.8) saturate(0) opacity(.9)",
       },
       {

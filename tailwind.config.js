@@ -14,6 +14,7 @@ module.exports = {
       },
       spacing: {
         "4v": "4vh",
+        "35v": "35vh",
         "40v": "40vh",
       },
       fontFamily: {
@@ -47,6 +48,7 @@ module.exports = {
       animation: ["hover", "focus"],
       zIndex: ["hover"],
       opacity: ["group-hover"],
+      padding: ["first"]
     },
   },
   plugins: [],

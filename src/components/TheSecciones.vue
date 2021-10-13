@@ -45,14 +45,21 @@
       <div
         v-for="(seccion, indexSeccion) in secciones"
         :key="indexSeccion"
-        class="text-left px-10 mb-10 md:mb-30 seccion"
+        class="text-left md:px-10 mb-10 md:mb-30 seccion"
       >
         <div
-          class="grid grid-cols-1 md:grid-cols-3 gap-x-5 md:gap-x-12 md:pt-20 pt-8"
+          class="
+            grid grid-cols-1
+            md:grid-cols-5
+            gap-x-5
+            md:gap-x-12
+            md:pt-20
+            pt-8
+          "
           :id="seccion.id"
         >
           <!-- Col 1 - Desktop: Titulo y Foto de sección Sticky - Mobile: Hidden -->
-          <div class="hidden md:block col-span-1 md:col-span-2 relative">
+          <div class="hidden md:block col-span-1 md:col-span-3 relative">
             <div class="block md:sticky top-16 z-40">
               <div class="flex">
                 <Title class="text-xl block" :title="seccion.titulo" />
@@ -88,9 +95,9 @@
           </div>
 
           <!-- Col 2 - Desktop: Texto - Mobile: Foto + Texto -->
-          <div class="mt-8 md:mt-20 col-span-2 md:col-span-1 z-50">
+          <div class="mt-8 md:mt-20 col-span-2 md:col-span-2 z-50">
             <!--  font-texto -->
-            <Title :title="seccion.titulo" class="md:hidden" />
+            <Title :title="seccion.titulo" class="md:hidden px-10 md:px-0" />
             <div
               v-for="(parrafo, indexParrafo) in seccion.parrafos"
               :key="indexParrafo"
@@ -106,29 +113,67 @@
                     currentParrafo !==
                     `parrafo-${indexSeccion}-${indexParrafo}`,
                 },
-                'parrafo md:pt-4v md:pb-40v transition duration-500 ',
+                {
+                  'md:pt-35v': indexParrafo === 0,
+                  'md:pt-4v': indexParrafo !== 0,
+                },
+                'parrafo md:pb-40v transition duration-500 ',
               ]"
             >
               <div>
-                <div class="mt-8 pb-5 w-full h-80 md:hidden relative">
+                <div
+                  class="
+                    mt-8
+                    pb-5
+                    w-full
+                    h-auto
+                    max-h-80
+                    md:h-80
+                    md:hidden
+                    relative
+                  "
+                >
                   <img
                     :src="getFoto(parrafo)"
-                    class="w-full h-full object-cover"
+                    class="
+                      w-full
+                      h-auto
+                      max-h-80
+                      md:h-full
+                      object-contain
+                      md:object-cover
+                    "
                   />
                 </div>
-                <p class="text-xl md:text-2xl font-bold break-words mb-4">
+                <p
+                  class="
+                    px-10
+                    md:px-0
+                    text-xl
+                    md:text-2xl
+                    font-bold
+                    break-words
+                    mb-4
+                  "
+                >
                   {{ parrafo.titulo }}
                 </p>
                 <p
                   class="
+                    px-10
+                    md:px-0
+                    pb-2
                     text-md
                     md:text-md
                     break-words
                     leading-6
                     whitespace-pre-line
                   "
+                  v-for="(parrafoText, indexp) in parrafo.parrafos"
+                  :key="indexp"
                 >
-                  {{ formatParrafo(parrafo.parrafo) }}
+                  <!-- {{ formatParrafo(parrafo.parrafo) }} -->
+                  {{ parrafoText }}
                 </p>
               </div>
             </div>
@@ -183,32 +228,43 @@ export default {
         parrafos: [
           {
             titulo: "Tu negocio, en la palma de tu mano.",
-            parrafo:
+            parrafos: [
               "Manejá tu negocio desde donde estés, con cualquier dispositivo (desktop o mobile).",
+            ],
             foto: "1",
           },
           {
             titulo: "Sistemas creados para tu negocio",
-            parrafo:
-              "¿Tu sistema actual no acompaña el crecimiento de tu empresa?\n Lo reemplazamos o complementamos en función de tus necesidades.",
+            parrafos: [
+              "¿Tu sistema actual no acompaña el crecimiento de tu empresa?",
+              "Lo reemplazamos o complementamos en función de tus necesidades.",
+            ],
+
             foto: "3",
           },
           {
             titulo: "Inversiones que rinden",
-            parrafo:
-              "Desarrollamos sistemas de gestión que te permitan automatizar procesos, evitar errores y ahorrar tiempo y recursos. Poné a tu equipo a trabajar en lo que verdaderamente importa.",
+            parrafos: [
+              "Desarrollamos sistemas de gestión que te permitan automatizar procesos, evitar errores y ahorrar tiempo y recursos.",
+              "Poné a tu equipo a trabajar en lo que verdaderamente importa.",
+            ],
             foto: "5",
           },
           {
             titulo: "Sistemas integrales y modulares",
-            parrafo:
-              "Stock, pedidos, personal, ventas... Podés empezar por uno, y vas a terminar manejando todo tu negocio en un mismo sistema.",
+            parrafos: [
+              "Stock, pedidos, personal, ventas...",
+              "Podés empezar por uno, y vas a terminar manejando todo tu negocio en un mismo sistema.",
+            ],
             foto: "7",
           },
           {
             titulo: "Descubrí lo que tus datos tienen para contarte",
-            parrafo:
-              "Nuestros tableros interactivos te permiten aprovechar la información de tu empresa. Medí, analizá, anticipá y tomá las decisiones más redituables.",
+            parrafos: [
+              "Nuestros tableros interactivos te permiten aprovechar la información de tu empresa.",
+              "Medí, analizá, anticipá y tomá las decisiones más redituables.",
+            ],
+
             foto: "16",
           },
         ],
@@ -220,20 +276,26 @@ export default {
         parrafos: [
           {
             titulo: "No hay segunda oportunidad para una primera impresión",
-            parrafo:
-              "Tu sitio web es tu carta de presentación. Atraé a los usuarios contándoles qué tenés para ofrecerles.",
+            parrafos: [
+              "Tu sitio web es tu carta de presentación.",
+              "Atraé a los usuarios contándoles qué tenés para ofrecerles.",
+            ],
             foto: "9",
           },
           {
             titulo: "Diseño UX",
-            parrafo:
-              "Diseños pensados en la facilidad de navegación, tanto en desktop como en mobile. Si algo no es fácil de encontrar, está mal diseñado.",
+            parrafos: [
+              "Diseños pensados en la facilidad de navegación, tanto en desktop como en mobile.",
+              "Si algo no es fácil de encontrar, está mal diseñado.",
+            ],
             foto: "12",
           },
           {
             titulo: "Autoadministrables (si querés, y si no, no)",
-            parrafo:
-              "Sitios web llave en mano: una vez que está listo, modificás el contenido cuando vos quieras, de manera sencilla. Y si preferís, lo hacemos nosotros. ",
+            parrafos: [
+              "Sitios web llave en mano: una vez que está listo, modificás el contenido cuando vos quieras, de manera sencilla.",
+              "Y si preferís, lo hacemos nosotros.",
+            ],
             foto: "14",
           },
         ],
@@ -245,26 +307,34 @@ export default {
         parrafos: [
           {
             titulo: "Sé referente de tu comunidad",
-            parrafo:
-              "Pensá más allá de tus productos: acompañá a tus clientes antes, durante y después de cada compra. Te ayudamos a crear y curar contenido de calidad, que ofrece valor y fideliza a tus usuarios.",
+            parrafos: [
+              "Pensá más allá de tus productos: acompañá a tus clientes antes, durante y después de cada compra.",
+              "Te ayudamos a crear y curar contenido de calidad, que ofrece valor y fideliza a tus usuarios.",
+            ],
             foto: "13",
           },
           {
             titulo: "Acompañá a los usuarios mientras recorren tu sitio web ",
-            parrafo:
-              "Anticipar sus dudas y las respuestas que necesitan es una gran estrategia para lograr más ventas. Repensamos los textos de tu web hasta que queden perfectos.",
+            parrafos: [
+              "Anticipar sus dudas y las respuestas que necesitan es una gran estrategia para lograr más ventas.",
+              "Repensamos los textos de tu web hasta que queden perfectos.",
+            ],
             foto: "18",
           },
           {
             titulo: "La personalidad de tu empresa, en todos los canales",
-            parrafo:
-              "Redes sociales, newsletters, mailing, formularios... Que se note en todos lados quiénes son ustedes.",
+            parrafos: [
+              "Redes sociales, newsletters, mailing, formularios...",
+              "Que se note en todos lados quiénes son ustedes.",
+            ],
             foto: "20",
           },
           {
             titulo: "Publicitate en la web",
-            parrafo:
-              "Diseñamos estrategias focalizadas en los usuarios a los que te interesa llegar. Creamos anuncios digitales para que te encuentren quienes realmente te necesitan.",
+            parrafos: [
+              "Diseñamos estrategias focalizadas en los usuarios a los que te interesa llegar.",
+              "Creamos anuncios digitales para que te encuentren quienes realmente te necesitan.",
+            ],
             foto: "19",
           },
         ],

@@ -47,7 +47,7 @@
           text-center text-xs
           lg:text-lg
           space-y-2
-          md:space-y-8
+          md:space-y-4
           text-white
           rounded-tr-xl
           relative
@@ -74,9 +74,9 @@
           no hagas siempre lo mismo
         </div>
         <p
-          class="w-full text-right glitch"
+          class="w-full text-right glitch font-title"
           data-text="- Albert Einstein"
-          style="font-family: 'Baloo Tamma 2'"
+          style="font-size:.6rem"
         >
           - Albert Einstein
         </p>
@@ -87,7 +87,7 @@
         <a href="#main">
           <img
             src="@/assets/chevron-down.svg"
-            class="w-10 h-10 p-0 border rounded-full m-4"
+            class="w-10 h-10 p-0 text-main rounded-full m-4"
           />
         </a>
       </div>
