@@ -81,7 +81,7 @@
                         currentParrafo !==
                         `parrafo-${indexSeccion}-${indexParrafo}`,
                     },
-                    'transition h-72v md:h-80v duration-500 w-full block md:absolute top-0 bottom-0 left-0 right-0',
+                    'transition h-72v md:h-80v md:p-9 duration-500 w-full block md:absolute top-0 bottom-0 left-0 right-0',
                   ]"
                 >
                   <div class="w-full h-full absolute"></div>
